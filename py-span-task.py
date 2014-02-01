@@ -289,8 +289,6 @@ class TestScript(object):
     except:
       self.finish(frame, **opts)
 
-  # TODO: Calculate WM scores and add them in a comment.
-
   def finish(self, frame, results=None, **opts):
     if results:
       results.extend(self.results)
@@ -471,8 +469,6 @@ if __name__=="__main__":
   exec file(config_file)
 
   with ask_if_warnings(lambda:sys.exit(1), "There were warnings.  Do you want to proceed?"):
-    # TODO: add more sanity checks for the configuration.
-    # TODO: separate sanity checks from __main__
 
     # Make sure that all parameters are present in the configuration file.
     t = set("""fontname fontname processing_items_file target_items_file responses
@@ -555,8 +551,6 @@ if __name__=="__main__":
       raise ValueError("There is a response other than y and n for at least one verification item.")
     
   # End sanity checks.
-
-  # TODO: Add important settings to header for reference.
 
   store_line("# Working memory test", 'w')
   store_line("# written by Titus v.d. Malsburg <malsburg@uni-potsdam.de>")
