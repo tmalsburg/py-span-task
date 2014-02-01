@@ -17,6 +17,6 @@ Operation and reading span tests play an important role in our research area.  A
 
 Yes, everybody is invited to use our software and we will soon provide a manual and example configurations showing how to run different types of tests.  We may also provide test material for tests in several languages.  You can use, modify, and improve this material if you want.  Note, however, that *we can't take any responsibility for the correctness of the software or its results*.  If you use our software in your research, we would be happy if you could acknowledge that in your publications.  There is currently no paper about this software that could be cited.  Simply mention the name of the software so that other people can find it on the web.
 
-## Please share your improvements and modifications!
+## Please share your improvements and modifications and report bugs!
 
 If you modify the test software or the test material, please consider sharing these changes with us so that we may integrate them in our version.  If you create new test material, or if you translate one of our tests into another language, we would also be happy to integrate these materials in our repository.  If you find bugs in the software, or errors in the material, please let us know and we will fix them.  If you have suggestions for improvements, you can create a new entry in the issue tracker provided by Github.
