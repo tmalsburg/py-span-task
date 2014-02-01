@@ -1,4 +1,22 @@
-py-span-task
+Py-Span-Task
 ============
 
-A simple app for testing working memory span.
+Py-Span-Task is a simple application for testing working memory span.  It follows the recommendations given in Conway, Kane, Bunting, Hambrick, Wilhelm, & Engle ([Psychonomic Bulletin & Review, 2005](http://link.springer.com/article/10.3758/BF03196772)) and can be configured to perform operation span tests and reading span tests.  A protocol of the test procedure is saved into a simple text file that can be further analysed in statistical programs such as R or SPSS.
+
+Py-Span-Task is written in Python and uses the TK-toolkit for graphical user interfaces.  On Linux and OS X systems, the necessary software for running Py-Span-Task should already be installed.  Running Py-Span-Task on Windows may require installing Python (which usually already includes the TK-toolkit).
+
+## Current state of this project
+
+We wrote the first version of Py-Span-Task in 2010.  Since then, researchers in a number of labs have successfully used this software to obtain working memory scores.  The software can thus be considered to be relatively reliable and ready for production use.
+
+## Why have we written this software?
+
+Operation and reading span tests play an important role in our research area.  Applications for testing working memory span were already available, however, running them required expensive software licenses.  Since these memory tests are actually relatively simple, we decided to write our own software.  Apart from saving money another benefit of having our own software is that we know exactly what the software is doing and that we can fix it ourselves if something doesn't work as it is supposed to.  Since we publish the code for our test software, other researchers can also check how exactly we obtained our data.
+
+## Can everybody use this software?
+
+Yes, everybody is invited to use our software and we will soon provide a manual and example configurations showing how to run different types of tests.  We may also provide test material for tests in several languages.  You can use, modify, and improve this material if you want.  Note, however, that *we can't take any responsibility for the correctness of the software or its results*.  If you use our software in your research, we would be happy if you could acknowledge that in your publications.  There is currently no paper about this software that could be cited.  Simply mention the name of the software so that other people can find it on the web.
+
+## Please share your improvements and modifications!
+
+If you modify the test software or the test material, please consider sharing these changes with us so that we may integrate them in our version.  If you create new test material, or if you translate one of our tests into another language, we would also be happy to integrate these materials in our repository.  If you find bugs in the software, or errors in the material, please let us know and we will fix them.  If you have suggestions for improvements, you can create a new entry in the issue tracker provided by Github.
