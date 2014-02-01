@@ -15,11 +15,11 @@ We wrote the first version of Py-Span-Task in 2010.  Since then, researchers in 
 
 Operation and reading span tests play an important role in our research area.  Applications for testing working memory span were already available, however, running them required expensive software licenses.  Since these memory tests are actually relatively simple, we decided to write our own software.  Apart from saving money another benefit of having our own software is that we know exactly what the software is doing and that we can fix it ourselves if something doesn't work as it is supposed to.  Since we publish the code for our test software, other researchers can also check how exactly we obtained our data.
 
-### Can everybody use this software?
+### Can anybody use this software?
 
-Yes, everybody is invited to use our software and we will soon provide a manual and example configurations showing how to run different types of tests.  We may also provide test material for tests in several languages.  You can use, modify, and improve this material if you want.  Note, however, that *we can't take any responsibility for the correctness of the software or its results*.  If you use our software in your research, we would be happy if you could acknowledge that in your publications.  There is currently no paper about this software that could be cited.  Simply mention the name of the software so that other people can find it on the web.
+Yes, everybody is invited to freely use our software and we will soon provide a manual and example configurations showing how to run different types of tests.  We may also provide material for tests in several languages.  You can use, modify, and improve this material if you want.  Note, however, that **we can't take any responsibility for the correctness of the software or its results**.  If you use our software in your research, we would be happy if you could acknowledge that in your publications.  There is currently no paper about this software that could be cited.  Simply mention the name of the software so that other people can find it on the web.
 
-### Can everybody modify the test software and the test batteries?
+### Can anybody modify the test software and the test batteries?
 
 Yes, feel free to do so.  If you modify the test software or the test material, please consider sharing these changes with us so that we may integrate them in our version.  If you create new test material, or if you translate one of our tests into another language, we would also be happy to integrate these materials in our repository.
 
