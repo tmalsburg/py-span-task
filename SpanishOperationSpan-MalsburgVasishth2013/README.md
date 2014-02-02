@@ -1,6 +1,6 @@
 # A Spanish Operation Span Task
 
-This test battery includes material for conducting an operation span task in which the participants have to memorize high-frequency Spanish target words.  This task was used in a eyetracking study by Titus von der Malsburg and Shravan Vasishth ([Language and Cognitive Processes, 2013](http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232)).  See the article for details about how the test material was compiled.
+This test battery includes material for conducting an operation span task in which the participants have to memorize high-frequency Spanish target words.  This task was used in an eyetracking study by Titus von der Malsburg and Shravan Vasishth ([Language and Cognitive Processes, 2013](http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232)).  See the article for details about how the test material was compiled.
 
 ## Running the test
 
