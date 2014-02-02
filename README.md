@@ -30,3 +30,7 @@ Yes, it does provided your configuration files and test materials are saved with
 ### What if I find an error in the software or the test materials?
 
 If you find bugs in the software, or errors in the material, please let us know and we will fix them.  For reporting the problem, please use the issue tracker provided by Github.  The issue tracker can also be used for feature requests.
+
+### Who are the authors of py-span-task?
+
+Py-Span-Task was originally written by Titus von der Malsburg during his dissertation project in [Shravan Vasishth's lab](http://www.ling.uni-potsdam.de/~vasishth/) at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.
