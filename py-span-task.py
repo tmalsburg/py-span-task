@@ -10,7 +10,7 @@ __copyright__ = "Copyright 2010, Titus von der Malsburg"
 __license__ = "GPL v2"
 
 import sys, os, re, math, time, random
-import datetime 
+import datetime #added to save the date and time
 import Tkinter, Tkdnd, tkFileDialog
 from Tkconstants import PAGES, UNITS, NORMAL, RAISED, SUNKEN, HORIZONTAL, RIGHT, BOTH, LEFT, BOTTOM, TOP, NW, HIDDEN, X, Y, ALL, CENTER
 from warnings import warn
@@ -130,7 +130,7 @@ class PracticeProcessinItemsScript(object):
     self.times.append(time.time())
     frame.set_text(element)
     print "equation in screen: %s" % element
-    log_line("equation in screen: %s" % element) 
+    log_line("equation in screen: %s" % element) #Bruno
     self.number += 1
     self.next = self.store_results
 
@@ -138,8 +138,8 @@ class PracticeProcessinItemsScript(object):
     if key not in responses.values():
       return
     self.next = lambda s,f,k:None
-    print key, self.desired_answer, responses[self.desired_answer] 
-    log_line("key pressed: %s ; correct answer: %s ; correct response: %s" % (key, self.desired_answer, responses[self.desired_answer]) ) 
+    print key, self.desired_answer, responses[self.desired_answer] #############
+    log_line("key pressed: %s ; correct answer: %s ; correct response: %s" % (key, self.desired_answer, responses[self.desired_answer]) ) #Bruno
     if key == responses[self.desired_answer]:
       self.correct += 1
       frame.set_text(practice_correct_response)
@@ -157,9 +157,9 @@ class PracticeProcessinItemsScript(object):
       "total":practice_processing_items,
       "correct":self.correct})
     print "\n total: %s ; correct: %s \n" % (practice_processing_items,self.correct ) 
-    log_line(" ") 
-    log_line("total: %s ; correct: %s" % (practice_processing_items,self.correct  ) ) 
-    log_line(" ") 
+    log_line(" ") #Bruno
+    log_line("total: %s ; correct: %s" % (practice_processing_items,self.correct  ) ) #Bruno
+    log_line(" ") #Bruno
     store_line("# Practice processing items: %d"
                       % practice_processing_items)
     time_out = int(1000 * (mean(diff(self.times[measure_time_after_trial:]))
@@ -205,16 +205,16 @@ class TestScript(object):
     element, self.desired_answer = self.cur.pop(0).split('\t')
     self.start_time = time.time()
     frame.set_text(element)
-    print "equation in screen: %s" % element 
-    log_line("equation in screen: %s" % element) 
+    print "equation in screen: %s" % element #Bruno
+    log_line("equation in screen: %s" % element) #Bruno
     self.after_id = frame.after(time_out, lambda:self.interrupt(frame, **opts))
     self.next = self.show_target
 
   def interrupt(self, frame, **opts):
     self.next = lambda s,f,k:None
     frame.set_text(time_out_message)
-    print "time out..." 
-    log_line("Time out") 
+    print "time out..." #Bruno
+    log_line("Time out") #Bruno
     self.times.append(time.time() - self.start_time)
     ti = self.cur_targets.next()
     self.seen_targets.append(ti)
@@ -235,9 +235,9 @@ class TestScript(object):
     self.seen_targets.append(ti)
     frame.set_text(ti)
     print key, self.desired_answer, responses[self.desired_answer] #############
-    log_line("key pressed: %s ; correct answer: %s ; correct response: %s" % (key, self.desired_answer, responses[self.desired_answer]) ) 
-    print ti 
-    log_line("item presented: %s" %ti) 
+    log_line("key pressed: %s ; correct answer: %s ; correct response: %s" % (key, self.desired_answer, responses[self.desired_answer]) ) #Bruno
+    print ti #Bruno
+    log_line("item presented: %s" %ti) #Bruno
     if not self.cur:
       frame.after(target_display_time, lambda:self.finish_set(frame, **opts))
     else:
@@ -260,7 +260,14 @@ class TestScript(object):
     s = s.replace(',', '')
     s = s.split()
     t = [x.lower() for x in self.seen_targets]
-
+    if single_letters==True:  #add spaces if they forgot and they are single letters
+      for i in s:
+        if len(i)>1:
+          ind = s.index(i)
+          s.pop(ind)
+          for ii in list(i):      
+            s.insert(ind,ii)
+            ind=ind+1
     # Allow one typo: omission, addition, substitution of a character or
     # transposition of two characters.
     # FIXME: d(ABCD, BCDA) > d(ABCD, BACD) 
@@ -287,7 +294,7 @@ class TestScript(object):
     print "  recalled:", ", ".join(s)
     print "  correct:", correct, "out of", self.level
     print "  "
-    log_line(" ") 
+    log_line(" ") #Bruno...
     log_line( "trial: %s %s"% (self.phase, self.set_no))
     log_line(  "  presented: %s " % ", ".join(t))
     log_line(  "  recalled: %s " % ", ".join(s))
@@ -407,7 +414,7 @@ def request_subject_id():
   sid = sys.stdin.readline()[:-1]
   mo = re.match('[a-zA-Z0-9]+', sid)
   if mo and mo.group() == sid:
-    log_line("########################################################") 
+    log_line("########################################################") #Bruno
     log_line("subject number %s" %sid)
     log_line(datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
     return sid
@@ -544,6 +551,11 @@ if __name__=="__main__":
     # max level:
     if len(t) < 2*max(practice_levels + levels):
       warn("There are very few target items.  They might repeat too often.")
+    # Check if the targets are single letters/numbers
+    single_letters =True
+    for i in t:
+      if len(i)>1:
+         single_letters=False
 
     # In case sloppy spelling is allowed, check if the target items have
     # a sufficient damerau levenshtein distance to be unambiguously
