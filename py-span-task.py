@@ -242,7 +242,11 @@ class TestScript(object):
     # Save working memory and processing performance:
     s = frame.entry_var.get().lower()
     s = s.replace(',', '')
-    s = s.split()
+    if single_letters:
+        s = [c for c in s if not c in " \t"]  #identify characters as items even without spaces
+    else:
+        s = s.split()
+
     t = [x.lower() for x in self.seen_targets]
 
     # Allow one typo: omission, addition, substitution of a character or
@@ -508,6 +512,9 @@ if __name__=="__main__":
     # largest level:
     if len(t) <= max(practice_levels + levels):
       raise ValueError("There are too few target items for the largest set size.")
+
+    # Check if the targets are single letters/numbers 
+    single_letters = all(len(x)==1 for x in t)
 
     # Warn if the number of targets is not resonably bigger than the
     # max level:
