@@ -248,7 +248,14 @@ class TestScript(object):
         s = s.split()
 
     t = [x.lower() for x in self.seen_targets]
-
+    if single_letters==True:  #add spaces if they forgot and they are single letters 
+      for i in s:
+        if len(i)>1:
+          ind = s.index(i)
+          s.pop(ind)
+          for ii in list(i):       #splits the letters and instet them where they should be as different items  
+            s.insert(ind,ii)
+            ind=ind+1
     # Allow one typo: omission, addition, substitution of a character or
     # transposition of two characters.
     # FIXME: d(ABCD, BCDA) > d(ABCD, BACD) 
@@ -520,6 +527,11 @@ if __name__=="__main__":
     # max level:
     if len(t) < 2*max(practice_levels + levels):
       warn("There are very few target items.  They might repeat too often.")
+    # Check if the targets are single letters/numbers 
+    single_letters =True
+    for i in t:
+      if len(i)>1:
+         single_letters=False
 
     # In case sloppy spelling is allowed, check if the target items have
     # a sufficient damerau levenshtein distance to be unambiguously
