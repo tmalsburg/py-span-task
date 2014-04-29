@@ -29,7 +29,7 @@ If you use our software in your research, we would be happy if you could acknowl
 
 ### Can anybody modify the test software and the test batteries?
 
-Yes, feel free to do so.  If you modify the test software or the test material, please consider sharing these changes with us so that we may integrate them in our version.  If you create new test material, or if you translate one of our tests into another language, we would also be happy to integrate these materials in our repository.
+Yes, feel free to do so.  If you modify the test software or the test material, please consider sharing these changes with us so that we may integrate them in our version.  If you create new test material, or if you translate one of our tests into another language, we would also be happy to integrate these materials in our repository.  Your contribution will be duly acknowledged on this page.
 
 ### Does Py-Span-Task support non-western scripts?
 
