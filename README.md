@@ -23,7 +23,9 @@ Operation and reading span tests play an important role in our research area.  A
 
 ### Can anybody use this software?
 
-Yes, everybody is invited to freely use our software and we will soon provide a manual and example configurations showing how to run different types of tests.  We may also provide material for tests in several languages.  You can use, modify, and improve this material if you want.  Note, however, that **we can't take any responsibility for the correctness of the software or its results**.  If you use our software in your research, we would be happy if you could acknowledge that in your publications.  There is currently no paper about this software that could be cited.  Simply mention the name of the software so that other people can find it on the web.
+Yes, everybody is invited to freely use our software and we will soon provide a manual and example configurations showing how to run different types of tests.  We may also provide material for tests in several languages.  You can use, modify, and improve this material if you want.  Note, however, that **we can't take any responsibility for the correctness of the software or its results**.
+
+If you use our software in your research, we would be happy if you could acknowledge that in your publications.  There is currently no paper about this software that could be cited.  Simply mention the name of the software so that other people can find it on the web.
 
 ### Can anybody modify the test software and the test batteries?
 
