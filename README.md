@@ -9,7 +9,10 @@ Py-Span-Task is written in Python and uses the TK-toolkit for graphical user int
 
 Here's is a list of test batteries that are currently available in this repository.
 
-- Spanish operation span task used in von der Malsburg & Vasishth ([Language and Cognitive Processes, 2013](http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232))
+- Spanish operation span task used in von der Malsburg & Vasishth
+([Language and Cognitive Processes, 2013](http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232))
+- Operation span task with German instructions
+- German reading span task
 
 ## Frequently asked questions
 
