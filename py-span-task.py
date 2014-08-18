@@ -10,6 +10,7 @@ __copyright__ = "Copyright 2010, Titus von der Malsburg"
 __license__ = "GPL v2"
 
 import sys, os, re, math, time, random
+import datetime 
 import Tkinter, Tkdnd, tkFileDialog
 from Tkconstants import PAGES, UNITS, NORMAL, RAISED, SUNKEN, HORIZONTAL, RIGHT, BOTH, LEFT, BOTTOM, TOP, NW, HIDDEN, X, Y, ALL, CENTER
 from warnings import warn
@@ -128,6 +129,8 @@ class PracticeProcessinItemsScript(object):
     element, self.desired_answer = [s.strip() for s in self.processing_items.next().split('\t')]
     self.times.append(time.time())
     frame.set_text(element)
+    print "equation in screen: %s" % element
+    log_line("equation in screen: %s" % element) 
     self.number += 1
     self.next = self.store_results
 
@@ -135,6 +138,8 @@ class PracticeProcessinItemsScript(object):
     if key not in responses.values():
       return
     self.next = lambda s,f,k:None
+    print key, self.desired_answer, responses[self.desired_answer] 
+    log_line("key pressed: %s ; correct answer: %s ; correct response: %s" % (key, self.desired_answer, responses[self.desired_answer]) ) 
     if key == responses[self.desired_answer]:
       self.correct += 1
       frame.set_text(practice_correct_response)
@@ -151,7 +156,10 @@ class PracticeProcessinItemsScript(object):
     frame.set_text(practice_summary % {
       "total":practice_processing_items,
       "correct":self.correct})
-
+    print "\n total: %s ; correct: %s \n" % (practice_processing_items,self.correct ) 
+    log_line(" ") 
+    log_line("total: %s ; correct: %s" % (practice_processing_items,self.correct  ) ) 
+    log_line(" ") 
     store_line("# Practice processing items: %d"
                       % practice_processing_items)
     time_out = int(1000 * (mean(diff(self.times[measure_time_after_trial:]))
@@ -197,12 +205,16 @@ class TestScript(object):
     element, self.desired_answer = self.cur.pop(0).split('\t')
     self.start_time = time.time()
     frame.set_text(element)
+    print "equation in screen: %s" % element 
+    log_line("equation in screen: %s" % element) 
     self.after_id = frame.after(time_out, lambda:self.interrupt(frame, **opts))
     self.next = self.show_target
 
   def interrupt(self, frame, **opts):
     self.next = lambda s,f,k:None
     frame.set_text(time_out_message)
+    print "time out..." 
+    log_line("Time out") 
     self.times.append(time.time() - self.start_time)
     ti = self.cur_targets.next()
     self.seen_targets.append(ti)
@@ -222,6 +234,10 @@ class TestScript(object):
     ti = self.cur_targets.next()
     self.seen_targets.append(ti)
     frame.set_text(ti)
+    print key, self.desired_answer, responses[self.desired_answer] #############
+    log_line("key pressed: %s ; correct answer: %s ; correct response: %s" % (key, self.desired_answer, responses[self.desired_answer]) ) 
+    print ti 
+    log_line("item presented: %s" %ti) 
     if not self.cur:
       frame.after(target_display_time, lambda:self.finish_set(frame, **opts))
     else:
@@ -274,7 +290,13 @@ class TestScript(object):
     print "  presented:", ", ".join(t)
     print "  recalled:", ", ".join(s)
     print "  correct:", correct, "out of", self.level
-
+    print "  "
+    log_line(" ") 
+    log_line( "trial: %s %s"% (self.phase, self.set_no))
+    log_line(  "  presented: %s " % ", ".join(t))
+    log_line(  "  recalled: %s " % ", ".join(s))
+    log_line(  "  correct: %s out of %s" % (correct, self.level))
+    log_line(" ")
     self.results.append("%s\t%d\t%d\t%d\t%d\t%d\t%d"
                         % (self.phase, self.set_no, self.level, correct,
                            self.correct, int(1000*mean(self.times)),
@@ -374,6 +396,12 @@ def store_line(s, mode='a'):
   f.write(s + '\n')
   f.close()
 
+def log_line(s):   #to have a log of what happened
+  f = file("log.txt", 'a')
+  f.write(s + '\n')
+  f.close()
+
+
 def request_subject_id():
   """
   Prompt the user to enter a subject ID and check if the input
@@ -383,6 +411,9 @@ def request_subject_id():
   sid = sys.stdin.readline()[:-1]
   mo = re.match('[a-zA-Z0-9]+', sid)
   if mo and mo.group() == sid:
+    log_line("########################################################") 
+    log_line("subject number %s" %sid)
+    log_line(datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
     return sid
   else:
     return request_subject_id()
