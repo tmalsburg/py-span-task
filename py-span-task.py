@@ -249,26 +249,31 @@ class TestScript(object):
 
     t = [x.lower() for x in self.seen_targets]
 
-    # Allow one typo: omission, addition, substitution of a character or
+    # Allow one typo: omission, addition, substitution of a character, or
     # transposition of two characters.
-    # FIXME: d(ABCD, BCDA) > d(ABCD, BACD) 
-    if heed_order:
-      if allow_sloppy_spelling:
-        correct = len(t) - damerau_levenshtein(s, t,
-                             lambda x,y: damerau_levenshtein(x,y)<2)
-      else:
-        correct = len(t) - damerau_levenshtein(s, t)
+    # FIXME: d(ABCD, BCDA) > d(ABCD, BACD)
+    if allow_sloppy_spelling:
+      errors_allowed = 1
     else:
-      if allow_sloppy_spelling:
-        correct = []
-        for w1 in t:
-          for w2 in s:
-            if damerau_levenshtein(w1,w2) < 2:
-              correct.append(w2)
-              continue
-        correct = len(correct)
-      else:
-        correct = len(set(t).intersection(set(s)))
+      errors_allowed = 0
+    # Collect correctly recalled words:
+    hits = []
+    for w1 in s:
+      for w2 in t:
+      if damerau_levenshtein(w1,w2) <= errors_allowed:
+        hits.append(w2)
+        continue
+    # Remove duplicates from list of hits (although duplicates should
+    # not occur when the experiment is properly configured):
+    seen = set()
+    seen_add = seen.add
+    hits = [x for x in hits if not (x in seen or seen_add(x))]
+
+    if heed_order:
+      # Subtract points for items recalled in incorrect order:
+      correct = len(t) - damerau_levenshtein(hits, t)
+    else:
+      correct = len(hits)
         
     print "trial:", self.phase, self.set_no
     print "  presented:", ", ".join(t)
