@@ -280,17 +280,17 @@ class TestScript(object):
 
     t = [x.lower() for x in self.seen_targets]
 
-    correct = calculate_score(s, t, allow_sloppy_spelling, heed_order)
+    recalled = calculate_score(s, t, allow_sloppy_spelling, heed_order)
         
     print "trial:", self.phase, self.set_no
     print "  presented:", ", ".join(t)
-    print "  recalled:", ", ".join(s)
-    print "  correct:", correct, "out of", self.level
+    print "  entered:", ", ".join(s)
+    print "  correct:", recalled, "out of", self.level
 
-    self.results.append("%s\t%d\t%d\t%d\t%d\t%d\t%d"
-                        % (self.phase, self.set_no, self.level, correct,
+    self.results.append("%s\t%d\t%d\t%d\t%d\t%d\t%d\t%s\t%s"
+                        % (self.phase, self.set_no, self.level, recalled,
                            self.correct, int(1000*mean(self.times)),
-                           int(1000*max(self.times))))
+                           int(1000*max(self.times)), " ".join(t), " ".join(s)))
 
     try:
       self.cur, self.cur_targets = self.next_set()
@@ -320,7 +320,7 @@ class GoodbyeScript(object):
 
   def next(self, frame, key=None, **opts):
     frame.set_text(good_bye_text)
-    store_line("phase\tsid\tlevel\tmemory\tverification\tmean_rt\tmax_rt")
+    store_line("phase\tset.id\tnum.items\tcorrectly.recalled\tcorrectly.verified\tmean.rt\tmax.rt\tpresented.items\trecalled.items")
     store_line('\n'.join(opts["results"]))
     frame.next_script()
 
