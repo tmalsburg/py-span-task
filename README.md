@@ -33,7 +33,7 @@ Yes, feel free to do so.  If you modify the test software or the test material, 
 
 ### Does Py-Span-Task support non-western scripts?
 
-Yes, it does, provided that your configuration files and test materials are saved with the appropriate character encoding and provided that you are using a font that supports these scripts.  On OS X and modern Linux distributions, the best solution is to encode all your files in UTF-8.  It is likely that they are already saved in this encoding and in this case you are ready to roll.  Windows is a different matter, because (to my knowledge) it doesn't use UTF-8 by default.  Create a new entry in the issue tracker in case you run into problems on Windows and we will help you to fix it.
+Yes, it does, provided that your configuration files and test materials are saved with the appropriate character encoding (UTF-8) and provided that you are using a font that supports these scripts.  On OS X and modern Linux distributions, the default encoding scheme is UTF-8, so it should work out of the box.  As far as I know, Windows does not use UTF-8 as its default encoding scheme.  Therefore you have to make sure to select UTF-8 when you save the material in your text editor.  Create a new entry in the issue tracker in case you run into problems.
 
 ### What if I find an error in the software or the test materials?
 
