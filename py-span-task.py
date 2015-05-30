@@ -241,7 +241,7 @@ class TestScript(object):
       return
     # Save working memory and processing performance:
     s = frame.entry_var.get().lower()
-    s = s.replace(',', '')
+    s = s.replace(',', ' ')
     if single_letters:
         s = [c for c in s if not c in " \t"]  #identify characters as items even without spaces
     else:
