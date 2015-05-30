@@ -48,7 +48,7 @@ def damerau_levenshtein(s1, s2, eq=None):
 
   return d[len1-1,len2-1]
 
-def calculate_score(s, t):
+def calculate_score(s, t, allow_sloppy_spelling, heed_order):
   print s, map(type, s)
   print t, map(type, t)
   # Allow one typo: omission, addition, substitution of a character, or
@@ -280,7 +280,7 @@ class TestScript(object):
 
     t = [x.lower() for x in self.seen_targets]
 
-    correct = calculate_score(s, t)
+    correct = calculate_score(s, t, allow_sloppy_spelling, heed_order)
         
     print "trial:", self.phase, self.set_no
     print "  presented:", ", ".join(t)
