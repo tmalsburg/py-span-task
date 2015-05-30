@@ -329,7 +329,7 @@ def shuffled_lines(filename):
   Removes duplicate lines, iterates over the lines, shuffles them, and
   restarts iterating.
   """
-  lines = list(set([l.strip() for l in file(filename)]))
+  lines = list(set([l.decode("utf-8").strip() for l in file(filename)]))
   while 1:
     random.shuffle(lines)
     for l in lines:
@@ -346,7 +346,7 @@ class ShuffledItems:
 class RandomItems:
 
   def __init__(self, filename):
-    self.items = list(set([l.strip() for l in file(filename)]))
+    self.items = list(set([l.decode("utf-8").strip() for l in file(filename)]))
 
   def get_set(self, size):
     return iter(random.sample(self.items, size))
@@ -515,7 +515,7 @@ if __name__=="__main__":
     # Check target items:
 
     # Check if targets are unique:
-    t = [l.strip() for l in file(target_items_file)]
+    t = [l.decode("utf-8").strip() for l in file(target_items_file)]
     if len(t)!=len(set(t)):
       warn("There are duplicates in the list of targets: "
            + ', '.join(duplicates(t)))  
@@ -551,10 +551,10 @@ if __name__=="__main__":
       warn("Too few practice trials give you an unreliable estimate of the time needed by the participant to do the task.")
 
     # Have unique processing items:
-    t = [l.strip() for l in file(processing_items_file)]
+    t = [l.decode("utf-8").strip() for l in file(processing_items_file)]
     if len(t)!=len(set(t)):
-      warn("There are duplicates in the list of operations: "
-           + ', '.join(duplicates(t)))
+      warn(("There are duplicates in the list of operations: "
+           + ', '.join(duplicates(t))).encode("utf-8"))
 
     # Have enough processing items:
     no_targets = sum(practice_levels) * practice_items_per_level
