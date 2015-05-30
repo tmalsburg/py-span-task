@@ -200,13 +200,14 @@ class TestScript(object):
 
     self.cur, self.cur_targets = self.next_set()
 
-    # Data strctures for collecting the results:
+    # Data structures for collecting the results:
     self.set_no = 1
-    self.correct = 0
+    self.correct = 0              # number of correctly verifies processing items
     self.times = []
     self.level = len(self.cur)
     self.seen_targets = []
-    self.results = []
+    self.results = []             # list of lines for the results file
+    self.proportion_recalled = [] # proportion of correctly recalled items
 
     self.next = self.show_element
 
@@ -274,6 +275,8 @@ class TestScript(object):
     t = [x.lower() for x in self.seen_targets]
 
     recalled = calculate_score(s, t, allow_sloppy_spelling, heed_order)
+
+    self.proportion_recalled.append(float(recalled) / float(self.level))
         
     print "trial:", self.phase, self.set_no
     print "  presented:", ", ".join(t)
@@ -304,6 +307,7 @@ class TestScript(object):
     else:
       results = self.results
     opts.update({"results":results})
+    opts.update({"pcu":mean(self.proportion_recalled)})
     frame.entry_var.set("")
     frame.set_text(finished_message)
     frame.focus_set()
@@ -315,6 +319,7 @@ class GoodbyeScript(object):
     frame.set_text(good_bye_text)
     store_line("phase\tset.id\tnum.items\tcorrectly.recalled\tcorrectly.verified\tmean.rt\tmax.rt\tpresented.items\trecalled.items")
     store_line('\n'.join(opts["results"]))
+    store_line("# Partial credit unit score (PCU): %.3f" % opts["pcu"])
     frame.next_script()
 
 def shuffled_lines(filename):
