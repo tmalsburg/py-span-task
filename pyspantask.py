@@ -472,7 +472,7 @@ if __name__=="__main__":
   # Check if the output file already exists:
   while os.path.exists(results_file):
     print "A results file for this subject id already exists."
-    print "Shall I overwrite it? (y/n)"
+    print "Do you want to overwrite it? (y/n)"
     if sys.stdin.readline().strip() == "y":
       break
     else:
@@ -569,9 +569,16 @@ if __name__=="__main__":
     
   # End sanity checks.
 
-  store_line("# Working memory test", 'w')
-  store_line("# written by Titus v.d. Malsburg <malsburg@uni-potsdam.de>")
-  store_line("# University of Potsdam, 2009")
+  store_line("# Py-span-task", 'w')
+  store_line("# Written by Titus von der Malsburg <malsburg@posteo.de>")
+  store_line("# https://github.com/tmalsburg/py-span-task")
+
+  # Store important settings:
+
+  store_line("# Settings:")
+  store_line("# allow_sloppy_spelling = %s" % allow_sloppy_spelling)
+  store_line("# heed_order = %s" % heed_order)
+  store_line("# time_out_factor = %s" % time_out_factor)
 
   # Prepare material:
 
