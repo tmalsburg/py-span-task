@@ -260,9 +260,9 @@ class TestScript(object):
     hits = []
     for w1 in s:
       for w2 in t:
-      if damerau_levenshtein(w1,w2) <= errors_allowed:
-        hits.append(w2)
-        continue
+        if damerau_levenshtein(w1,w2) <= errors_allowed:
+          hits.append(w2)
+          continue
     # Remove duplicates from list of hits (although duplicates should
     # not occur when the experiment is properly configured):
     seen = set()
