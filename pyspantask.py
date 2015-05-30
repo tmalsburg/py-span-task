@@ -181,13 +181,8 @@ class PracticeProcessinItemsScript(object):
       "total":practice_processing_items,
       "correct":self.correct})
 
-    store_line("# Practice processing items: %d"
-                      % practice_processing_items)
     time_out = int(1000 * (mean(diff(self.times[measure_time_after_trial:]))
           + time_out_factor * sd(diff(self.times[measure_time_after_trial:]))))
-    store_line("# Mean rt: %.02f" % mean(diff(self.times)))
-    store_line("# Accuracy of answers: %.02f" %
-                           (float(self.correct)/practice_processing_items))
     
     frame.next_script(time_out=time_out, **opts)
 
