@@ -49,8 +49,6 @@ def damerau_levenshtein(s1, s2, eq=None):
   return d[len1-1,len2-1]
 
 def calculate_score(s, t, allow_sloppy_spelling, heed_order):
-  print s, map(type, s)
-  print t, map(type, t)
   # Allow one typo: omission, addition, substitution of a character, or
   # transposition of two characters.
   # FIXME: d(ABCD, BCDA) > d(ABCD, BACD)
@@ -383,7 +381,7 @@ def store_line(s, mode='a'):
   containing the results.
   """
   f = file(results_file, mode)
-  f.write(s + '\n')
+  f.write((s + '\n').encode("utf-8"))
   f.close()
 
 def request_subject_id():
