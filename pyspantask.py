@@ -465,7 +465,7 @@ if __name__=="__main__":
   else:
     config_file = sys.argv[1]
   if len(sys.argv) < 3:
-    results_file = request_subject_id() + ".dat"
+    results_file = request_subject_id() + ".tsv"
   else:
     results_file = sys.argv[2]
 
@@ -476,7 +476,7 @@ if __name__=="__main__":
     if sys.stdin.readline().strip() == "y":
       break
     else:
-      results_file = request_subject_id() + ".dat"
+      results_file = request_subject_id() + ".tsv"
 
   # Load and sanity check the configuration:
 
