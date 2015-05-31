@@ -55,10 +55,13 @@ Py-Span-Task was originally written by Titus von der Malsburg during his dissert
 
 ** Configuration
 
-The configuration file is a Python file that sets a number of variables described below.  As an example, see the [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan-MalsburgVasishth2013/configuration.py][configuration of the Spanish operation span task]] included in this repository.  When you save the configuration file make sure you save it in UTF-8 encoding.  This way special non-ASCII characters are correctly displayed and processed.
+The configuration file is a Python file that sets a number of settings described below.  As an example, see the [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan-MalsburgVasishth2013/configuration.py][configuration of the Spanish operation span task]] included in this repository.  When you save the configuration file make sure you save it in UTF-8 encoding.  This way special non-ASCII characters are correctly displayed and processed.
 
 Apart from the configuration file, a task consists of a file containing the target items (the items that the participants have to memorize) and a file containing the “processing items”, i.e. the items used in the distractor task (equations or sentences or …).  [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan-MalsburgVasishth2013/target_words_spanish.txt][Here]] is the target items file of the Spanish operation span task and [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan-MalsburgVasishth2013/operations.txt][here]] are is the processing items file.
 
+*** Settings
+
+All settings below are mandatory.  There are no default values.
 
 **** fontsize
 
