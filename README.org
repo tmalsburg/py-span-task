@@ -1,6 +1,8 @@
 * Py-Span-Task
 
-Py-Span-Task is a simple application for testing working memory span.  Key features:
+Py-Span-Task is a simple application for testing working memory span.
+
+** Key features:
 
 - Runs on Linux, OSX, Windows.
 - Follows the recommendations given in Conway, Kane, Bunting, Hambrick, Wilhelm, & Engle ([[http://link.springer.com/article/10.3758/BF03196772][Psychonomic Bulletin & Review, 2005]]).
@@ -58,19 +60,19 @@ The configuration file is a Python file that sets a number of variables describe
 Apart from the configuration file, a task consists of a file containing the target items (the items that the participants have to memorize) and a file containing the “processing items”, i.e. the items used in the distractor task (equations or sentences or …).  [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan-MalsburgVasishth2013/target_words_spanish.txt][Here]] is the target items file of the Spanish operation span task and [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan-MalsburgVasishth2013/operations.txt][here]] are is the processing items file.
 
 
-*** =fontsize=
+**** fontsize
 
 #+BEGIN_SRC python
 fontsize = 22
 #+END_SRC
 
-*** =fontname=
+**** fontname
 
 #+BEGIN_SRC python
 fontname = "Helvetica"
 #+END_SRC
 
-*** =processing_items_file=
+**** processing_items_file
 
 File containing the items for the processing task.
 
@@ -87,7 +89,7 @@ Format of the file:   One item per line.  A sentence in case of a reading span t
 
 Make sure that your editor stores tabs as real tabs and does not expand them to spaces.
 
-*** =target_items_file=
+**** target_items_file
 
 The file containing the items that the participants have to memorize.  In this file, there's one item per line.  Items can be letters, digits or sentences -- almost any string is ok.
 
@@ -95,7 +97,7 @@ The file containing the items that the participants have to memorize.  In this f
 target_items_file = "target_words_spanish.txt"
 #+END_SRC
 
-*** =responses=
+**** responses
 
 Possible responses and their respective keys: Before the colon is the response as indicated in the file with the processing items (=processing_items_file=).  After the colon you can specify the key on the keyboard that the participants should use to indicate that response.
 
@@ -106,7 +108,7 @@ responses = {
 }
 #+END_SRC
 
-*** =welcome_text=
+**** welcome_text
 
 Text shown at the beginning of the test.
 
@@ -114,7 +116,7 @@ Text shown at the beginning of the test.
 welcome_text = """¡Bienvenido!"""
 #+END_SRC
 
-*** =instructions1=
+**** instructions1
 
 Text shown on page two.  Should give an explanation of the first round of practice trials.  In this phase only processing items are shown and there is no memory task.  The reaction time of the participants is measures to calculate a timeout after which trials are aborted if no response was given.  This allows every participant to work at their own pace.  People who are really good at checking equations will not have extra time to rehearse memory items.
 
@@ -122,7 +124,7 @@ Text shown on page two.  Should give an explanation of the first round of practi
 instructions1 = """En este test, debe indicar …"""
 #+END_SRC
 
-*** =allow_sloppy_spelling=
+**** allow_sloppy_spelling
 
 Whether or not minor typos are tolerated when people enter recalled items.  If set to =True=, the entered item is counted as correct if there's at most one of the following types of typos: omission of a caracter, addition of a character, substitution of a character. NOTE: Don't use this if your target items are very short, e.g. single digits, because by substitution every digit can be turned into the correct one.
 
@@ -130,7 +132,7 @@ Whether or not minor typos are tolerated when people enter recalled items.  If s
 allow_sloppy_spelling = False
 #+END_SRC
 
-*** =practice_processing_items=
+**** practice_processing_items
 
 Number of processing items for the first practice phase.  Don't set this number too low.  The reaction times are measured during these practice trials and the mean + =time_out_factor= * SD is used as timeout during the actual test.
 
@@ -138,7 +140,7 @@ Number of processing items for the first practice phase.  Don't set this number 
 practice_processing_items = 2
 #+END_SRC
 
-*** =time_out_factor=
+**** time_out_factor
 
 The factor multiplied with the standard deviation plus the mean reaction time for the practice trials is the timeout, i.e. the time after which the presentation of the processing item is interrupted and the response is counted as wrong.
 
@@ -146,7 +148,7 @@ The factor multiplied with the standard deviation plus the mean reaction time fo
 time_out_factor = 2.5
 #+END_SRC
 
-*** =time_out_message=
+**** time_out_message
 
 Text shown when a participant took too much time to judge a processing item.
 
@@ -154,7 +156,7 @@ Text shown when a participant took too much time to judge a processing item.
 time_out_message = """¡Demasiado lento!"""
 #+END_SRC
 
-*** =measure_time_after_trial=
+**** measure_time_after_trial
 
 When first exposed to the task, participants often take much longer than later.  Therefore, it's advisable to measure processing time only after a number of practice trials.  This variable controls when the measurements start.
 
@@ -162,7 +164,7 @@ When first exposed to the task, participants often take much longer than later. 
 measure_time_after_trial = 3
 #+END_SRC
 
-*** =heed_order=
+**** heed_order
 
 If the order of recalled items does not matter, set this to =False=.  If recalled items should be entered in the order in which they were presented, set this to =True=.  Items that are correctly recalled but in the wrong position will then not count towards the score.
 
@@ -170,7 +172,7 @@ If the order of recalled items does not matter, set this to =False=.  If recalle
 heed_order = False
 #+END_SRC
 
-*** =pseudo_random_targets=
+**** pseudo_random_targets
 
 This controls the order in which target items are presented.  Either the list of items is shuffled and then each element is presented one after the other.  When the list is finished it is shuffled again and the process starts all over.  Set =pseudo_random_targets= to =True= to get this behavior.  If set to =False=, items are drawn randomly from the set of all items.  The crucial difference is that an item can appear in two consecutive trials then.  If there are only a few target items, say the digits from 0 to 9, then true random selection is preferable.  Otherwise, people can easily guess: if they saw 1, 3, 5, 7, 9 in the last trial, they can guess that in the next they will see 0, 2, 4, 6, 8.  If the number of target item is large, shuffled presentation is better, because it avoids repetitions.
 
@@ -178,7 +180,7 @@ This controls the order in which target items are presented.  Either the list of
 pseudo_random_targets = True
 #+END_SRC
 
-*** =instructions2=
+**** instructions2
 
 Text shown after the first practice phase.  Introduces the combined task with processing items /and/ target items for memorization.  This phase gives participants a feeling for the timeout and gives them a chance to ask question before the main test begins.
 
@@ -186,7 +188,7 @@ Text shown after the first practice phase.  Introduces the combined task with pr
 instructions2 = """En la segunda parte, …"""
 #+END_SRC
 
-*** =practice_levels=
+**** practice_levels
 
 In each trial, a number of processing and target items are shown.  This variable specifies which numbers of items are presented, in the example below, either two or four.  The order of the numbers doesn't matter.
 
@@ -194,7 +196,7 @@ In each trial, a number of processing and target items are shown.  This variable
 practice_levels = (2, 4)
 #+END_SRC
 
-*** =practice_items_per_level=
+**** practice_items_per_level
 
 Number of trials in the second practice phase per level.  In the present example, there would be 6 practice trials because there are 2 levels (2 and 4) and 3 trials per level.
 
@@ -202,7 +204,7 @@ Number of trials in the second practice phase per level.  In the present example
 practice_items_per_level = 3
 #+END_SRC
 
-*** =practice_correct_response=
+**** practice_correct_response
 
 Response given in the second practice phase if a processing items was correctly judged.  (No feedback will be given during the main experiment.)
 
@@ -210,7 +212,7 @@ Response given in the second practice phase if a processing items was correctly 
 practice_correct_response = """¡Muy bien!"""
 #+END_SRC
 
-*** =practice_incorrect_response=
+**** practice_incorrect_response
 
 Response given in the second practice phase if a processing items was incorrectly judged.  (No feedback will be given during the main experiment.)
 
@@ -218,7 +220,7 @@ Response given in the second practice phase if a processing items was incorrectl
 practice_incorrect_response = """¡Lo siento, incorrecto!"""
 #+END_SRC
 
-*** =practice_summary=
+**** practice_summary
 
 Summary presented when the second practice phase is finished.
 
@@ -229,7 +231,7 @@ respuestas correctas.
 Presione la barra espaciadora para continuar."""
 #+END_SRC
 
-*** =instructions3=
+**** instructions3
 
 This text appear after the familiarization period (phase two) and prepares participants for the main test.
 
@@ -237,7 +239,7 @@ This text appear after the familiarization period (phase two) and prepares parti
 instructions3 = """En este momento ya debe …"""
 #+END_SRC
 
-*** =levels=
+**** levels
 
 The levels of memory load that are tested in the main test.  The same as =practice_levels=.  Order doesn't matter.
 
@@ -245,7 +247,7 @@ The levels of memory load that are tested in the main test.  The same as =practi
 levels = (2, 3, 4, 5, 6)
 #+END_SRC
 
-*** =items_per_level=
+**** items_per_level
 
 Number of trials per level in the main test.  Like =practice_items_per_level=.
 
@@ -253,7 +255,7 @@ Number of trials per level in the main test.  Like =practice_items_per_level=.
 items_per_level = 1
 #+END_SRC
 
-*** =next_message=
+**** next_message
 
 Text shown before each trial.
 
@@ -261,7 +263,7 @@ Text shown before each trial.
 next_message = """Cuando esté preparado, sitúe los dedos índice sobre las teclas marcadas y presione la barra espaciadora con el dedo pulgar para continuar."""
 #+END_SRC
 
-*** =target_request=
+**** target_request
 
 Text prompting the participant for recalled items.
     
@@ -269,7 +271,7 @@ Text prompting the participant for recalled items.
 target_request = """Por favor, teclee las palabras que recuerde separadas por un espacio.  Cuando haya terminado, presione la tecla enter."""
 #+END_SRC
 
-*** =finished_message=
+**** finished_message
 
 Text shown when the main test is finished.
 
@@ -279,7 +281,7 @@ finished_message = """¡Bien hecho!
 Presione la barra espaciadora para continuar."""
 #+END_SRC
 
-*** =target_display_time=
+**** target_display_time
 
 Specifies how the target items will be displayed (in milliseconds).
 
@@ -287,7 +289,7 @@ Specifies how the target items will be displayed (in milliseconds).
 target_display_time = 1000
 #+END_SRC
 
-*** =response_display_time=
+**** response_display_time
 
 Specifies how long the feedback (correct or wrong) will be displayed during the practice trials.
 
@@ -295,7 +297,7 @@ Specifies how long the feedback (correct or wrong) will be displayed during the 
 response_display_time = 1000
 #+END_SRC
 
-*** =good_bye_text=
+**** good_bye_text
 
 Text shown after at the end of the test.
 
