@@ -6,9 +6,9 @@ Py-Span-Task is a simple application for testing working memory span.  Key featu
 - Follows the recommendations given in Conway, Kane, Bunting, Hambrick, Wilhelm, & Engle ([[http://link.springer.com/article/10.3758/BF03196772][Psychonomic Bulletin & Review, 2005]]).
 - Performs operation and reading span tests.
 - Is highly configurable.
-- Support for non-western scripts via Unicode and UTF-8.
+- Supports non-western scripts via Unicode and UTF-8.
 - Computes partial credit unit scores.
-- Saves a protocol of the test procedure in a simple text file that can readily be loaded in R, Excel, SPSS, …
+- Saves a protocol of the test procedure in a simple text file that can be loaded in R, Excel, SPSS, …
 - Includes an R script for calculating a range of other measures.
 
 Py-Span-Task is written in Python and uses the TK-toolkit for graphical user interfaces.  On Linux and OS X systems, the necessary software for running Py-Span-Task should already be installed.  Running Py-Span-Task on Windows may require installing Python (which usually includes the TK-toolkit).
