@@ -266,14 +266,6 @@ Text shown before each trial.
 next_message = """Cuando esté preparado, sitúe los dedos índice sobre las teclas marcadas y presione la barra espaciadora con el dedo pulgar para continuar."""
 #+END_SRC
 
-**** target_request
-
-Text prompting the participant for recalled items.
-    
-#+BEGIN_SRC python
-target_request = """Por favor, teclee las palabras que recuerde separadas por un espacio.  Cuando haya terminado, presione la tecla enter."""
-#+END_SRC
-
 **** finished_message
 
 Text shown when the main test is finished.

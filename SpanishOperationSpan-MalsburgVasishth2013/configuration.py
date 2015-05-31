@@ -129,9 +129,6 @@ items_per_level = 5
 next_message = """
 Cuando esté preparado, sitúe los dedos índice sobre las teclas marcadas y presione la barra espaciadora con el dedo pulgar para continuar.
 """.strip()
-target_request = """
-Por favor, teclee las palabras que recuerde separadas por un espacio.  Cuando haya terminado, presione la tecla enter.
-""".strip()
 finished_message = """¡Bien hecho!
 
 Presione la barra espaciadora para continuar."""
