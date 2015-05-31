@@ -576,6 +576,7 @@ if __name__=="__main__":
   # Store important settings:
 
   store_line("# Settings:")
+  store_line("# subject id = %s" % results_file.split(".")[0])
   store_line("# allow_sloppy_spelling = %s" % allow_sloppy_spelling)
   store_line("# heed_order = %s" % heed_order)
   store_line("# time_out_factor = %s" % time_out_factor)
