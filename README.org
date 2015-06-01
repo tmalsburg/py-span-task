@@ -97,7 +97,7 @@ fontname = "Helvetica"
 
 **** processing_items_file
 
-File containing the items for the processing task.
+File containing the items for the processing task (also called the verification task or distractor task).
 
 #+BEGIN_SRC python
 processing_items_file = "operations.txt"
@@ -114,7 +114,7 @@ Make sure that your editor stores tabs as real tabs and does not expand them to 
 
 **** target_items_file
 
-The file containing the items that the participants have to memorize.  In this file, there's one item per line.  Items can be letters, digits or sentences -- almost any string is ok.
+The file containing the items that the participants have to memorize.  In this file, there's one item per line.  Items can be letters, digits or sentences -- almost any string is ok.  Note that the test is case insensitive.  The target items will be displayed as they are stored in this file, but when they are compared with user input the case will be ignored.
 
 #+BEGIN_SRC python
 target_items_file = "target_words_spanish.txt"
