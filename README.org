@@ -5,6 +5,7 @@ Py-Span-Task is a simple application for testing working memory span.
 ** News
 
 - June 1, 2015: ::
+  - Added a Japanese operation span task (contributed by Kentaro Nakatani).
   - Added a German reading span task and a German operation span task (contributed by Paul Metzner).
   - More robust handling of Unicode and UTF-8-encoded materials.
   - Working memory score (partial credit unit score) is calculated and stored in results file.
