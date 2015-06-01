@@ -21,6 +21,7 @@ responses = {
 
 # NUMBER OF ITEMS FOR CALIBRATION TRIALS. DON'T SET THIS NUMBER TOO LOW!
 practice_processing_items = 15
+measure_time_after_trial = 4
 
 # NUMBER OF ITEMS FOR PRACTIVE TRIALS. THESE CAN BE FEW.
 practice_levels = (3,4)
@@ -45,6 +46,7 @@ response_display_time = 1000
 ## NOTE: DON'T USE THIS IF YOUR TARGET ITEMS ARE VERY SHORT, E.G. SINGLE DIGITS, BECAUSE BY SUBSTITUTION EVERY DIGIT CAN BE TURNED INTO THE CORRECT ONE.
 allow_sloppy_spelling = True
 heed_order=True
+pseudo_random_targets = True
 
 ###############
 ## TEXT BITS ##

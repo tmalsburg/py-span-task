@@ -50,12 +50,12 @@ response_display_time = 1000
 ## swapped.
 ## Note: Don't use this if your target items are very short, e.g. single digits,
 ## because by substitution every digit can be turned into the correct one.
+allow_sloppy_spelling = False
 ## If pseudo_random_targets is set to True, the list of recall items will be
 ## shuffled, iterated over, and re-shuffled once the last element of the list
 ## has been presented.  If set to False, random items will be selected from the
 ## list in every trial
 pseudo_random_targets = True
-allow_sloppy_spelling = False
 heed_order=True
 
 ###############
