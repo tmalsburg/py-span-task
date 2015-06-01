@@ -32,6 +32,11 @@ Here's is a list of test batteries that are currently available in this reposito
 - German operation span task (contributed by Paul Metzner)
 - German reading span task (contributed by Paul Metzner)
 
+** Download
+
+- [[https://github.com/tmalsburg/py-span-task/releases/tag/v2.0][Latest release]] (.zip or .tar.gz)
+- [[https://github.com/tmalsburg/py-span-task/archive/master.zip][Current development version]] (.zip)
+
 ** FAQ:
 
 *** What's the state of this project?
