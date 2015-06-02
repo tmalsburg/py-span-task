@@ -1,3 +1,5 @@
+[[http://dx.doi.org/10.5281/zenodo.18238][https://zenodo.org/badge/doi/10.5281/zenodo.18238.svg]]
+
 * Py-Span-Task
 
 Py-Span-Task is a simple application for testing working memory span.
@@ -353,19 +355,41 @@ See the manual of ~list.files~ for details.
 
 We wrote the first version of Py-Span-Task in 2010.  Since then, researchers in a number of labs have successfully used this software to obtain working memory scores.  The software can thus be considered to be relatively reliable and ready for production use.
 
-*** Why have we written this software?
+*** Why have we developed this software?
 
 Operation and reading span tests play an important role in our research area.  Applications for testing working memory span were already available, however, running them required expensive software licenses.  Since these memory tests are actually relatively simple, we decided to write our own software.  Apart from saving money another benefit is that we know exactly what the software is doing and that we can fix it ourselves when something doesn't work as it is supposed to.  Since we publish the code for our test software, other researchers can also check how exactly we obtained our data.
 
 *** Can anyone use this software?
 
-Yes, everybody is invited to freely use our software and we will soon provide a manual and example configurations showing how to run different types of tests.  We may also provide material for tests in several languages.  You can use, modify, and improve this material if you want.  Note, however, that *we can't take any responsibility for the correctness of the software or its results*.
+Yes, everybody is invited to freely use our software.  We provide material for different operation and reading span tests in several languages.  You can use, modify, and improve this material if you want.  Note, however, that *we can't take any responsibility for the correctness of the software or its results* (see the license terms for details).
 
-If you use our software in your research, we would be happy if you could acknowledge that in your publications.  There is currently no paper about this software that could be cited.  Simply mention the name of the software so that other people can find it on the web.
+*** How can this software be cited?
+
+If you use our software in your research, we would appreciate if you could acknowledge that in your publications.
+
+#+BEGIN_EXAMPLE
+- von der Malsburg, T. (2015). Py-Span-Task -- A software for testing
+  working memory span. doi: 10.5281/zenodo.18238
+#+END_EXAMPLE
+
+Below is a BibTeX entry:
+
+#+BEGIN_SRC
+@misc{Malsburg2015,
+  author       = {von der Malsburg, Titus},
+  title        = {{Py-Span-Task -- A Software for Testing Working Memory Span}},
+  month        = jun,
+  year         = 2015,
+  doi          = {10.5281/zenodo.18238},
+  url          = {http://dx.doi.org/10.5281/zenodo.18238}
+}
+#+END_SRC
+
+
 
 *** Can anyone modify the test software and the test batteries?
 
-Yes, feel free to do so.  If you modify the test software or the test material, please consider sharing these changes with us so that we may integrate them in our version.  If you create new test material, or if you translate one of our tests into another language, we would also be happy to integrate these materials in our repository.  Your contribution will be duly acknowledged on this page.
+Yes, feel free to do so.  If you modify the test software or the test material, please consider sharing these changes with us so that we may integrate them in our version.  If you create new test materials, or if you translate one of our tests into another language, we would also be happy to integrate these materials in our repository.  Your contribution will be duly acknowledged on this page.
 
 *** Does Py-Span-Task support non-western scripts?
 
@@ -373,8 +397,8 @@ Yes, it does, provided that your configuration files and test materials are save
 
 *** What if I find an error in the software or the test materials?
 
-If you find bugs in the software, or errors in the material, please let us know and we will fix them.  For reporting the problem, please use the [[https://github.com/tmalsburg/py-span-task/issues][issue tracker]] provided by Github.  The issue tracker can also be used for feature requests.
+If you find bugs in the software, or errors in the material, please let us know and we try to fix them.  To report a problem, please use the [[https://github.com/tmalsburg/py-span-task/issues][issue tracker]].
 
 *** Who are the authors of Py-Span-Task?
 
-Py-Span-Task was originally written by Titus von der Malsburg during his dissertation project in [[http://www.ling.uni-potsdam.de/~vasishth/][Shravan Vasishth's lab]] at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.
+Py-Span-Task was originally written by Titus von der Malsburg during his dissertation project in [[http://www.ling.uni-potsdam.de/~vasishth/][Shravan Vasishth's lab]] at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.  Kentaro Nakatani contributed the Japanese operation span task.
