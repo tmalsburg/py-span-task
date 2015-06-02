@@ -307,7 +307,7 @@ A sample output file from the Japanese operation span task can be found [[https:
 In GNU R, the following command can be used to read a results file:
 
 # setwd("/home/malsburg/Documents/Uni/Projekte/MeasuringWorkingMemory/py-span-task/JapaneseOperationSpan")
-#+BEGIN_SRC R :session *R*
+#+BEGIN_SRC R :session *R* :export both
 d <- read.table("subject1.tsv", sep="\t", head=T, as.is=T)
 head(d)
 #+END_SRC
