@@ -307,18 +307,20 @@ A sample output file from the Japanese operation span task can be found [[https:
 In GNU R, the following command can be used to read a results file:
 
 # setwd("/home/malsburg/Documents/Uni/Projekte/MeasuringWorkingMemory/py-span-task/JapaneseOperationSpan")
-#+BEGIN_SRC R :session *R* :export both
+#+BEGIN_SRC R :export both :colnames yes
 d <- read.table("subject1.tsv", sep="\t", head=T, as.is=T)
 head(d)
 #+END_SRC
 
 #+RESULTS:
-| practice | 1 | 2 | 2 | 1 |  790 |  917 | z r         | z r         |
-| practice | 2 | 3 | 1 | 1 | 1056 | 1544 | b t r       | t           |
-| practice | 3 | 3 | 3 | 1 |  607 | 1061 | n b h       | n b h       |
-| practice | 4 | 2 | 2 | 1 |  415 |  581 | v b         | v b         |
-| test     | 1 | 6 | 5 | 4 |  452 |  569 | c x z l v t | c x z v l t |
-| test     | 2 | 3 | 1 | 1 |  800 | 1544 | z y x       | x           |
+| phase    | set.id | num.items | correctly.recalled | correctly.verified | mean.rt | max.rt | presented.items | recalled.items |
+|----------+--------+-----------+--------------------+--------------------+---------+--------+-----------------+----------------|
+| practice |      1 |         2 |                  2 |                  1 |     790 |    917 | z r             | z r            |
+| practice |      2 |         3 |                  1 |                  1 |    1056 |   1544 | b t r           | t              |
+| practice |      3 |         3 |                  3 |                  1 |     607 |   1061 | n b h           | n b h          |
+| practice |      4 |         2 |                  2 |                  1 |     415 |    581 | v b             | v b            |
+| test     |      1 |         6 |                  5 |                  4 |     452 |    569 | c x z l v t     | c x z v l t    |
+| test     |      2 |         3 |                  1 |                  1 |     800 |   1544 | z y x           | x              |
 
 However, this repository also [[https://github.com/tmalsburg/py-span-task/blob/master/analysis_scripts/calculate_wmscores.R][includes a function]] that reads the data and calculates the usual working memory scores (described in Conway et al., 2005).
 
