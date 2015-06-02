@@ -289,31 +289,39 @@ good_bye_text = """¡Gracias por su colaboración!"""
 #+END_SRC
 ** Running the test
 
-To run the test, open a terminal, enter the directory containing =pyspantask.py= and the configuration file of the test and execute the following command:
+To run the test, open a terminal, enter the directory containing =pyspantask.py= and the configuration file of the test, and execute the following command:
 
 #+BEGIN_SRC sh
 python pyspantask.py configuration.py
 #+END_SRC
 
-The test will prompt you for a subject id and conduct some sanity checks on your test materials.  For example, it will check whether there are enough target items and whether they are sufficiently different to be uniquely identified when sloppy spelling is tolerated.
+The test will prompt for a subject id and conduct some sanity checks on the test materials.  For example, it will check whether there are enough target items and whether they are sufficiently different to be uniquely identified when sloppy spelling is tolerated.
 ** Results file
 
 The results will be stored in a file whose name consists of the subject id and the suffix =.tsv=.  The format of the results file is tab-separated-values and can be read by statistical software such as GNU R and spreadsheet applications such as LibreOffice Calc.
 
-A sample output file from the Japanese operation span task can be seen [[https://github.com/tmalsburg/py-span-task/blob/master/JapaneseOperationSpan/subject1.tsv][here]].
+A sample output file from the Japanese operation span task can be found [[https://github.com/tmalsburg/py-span-task/blob/master/JapaneseOperationSpan/subject1.tsv][here]].
 
 ** Analyzing the results
 
 In GNU R, the following command can be used to read a results file:
 
-#+BEGIN_SRC R
+# setwd("/home/malsburg/Documents/Uni/Projekte/MeasuringWorkingMemory/py-span-task/JapaneseOperationSpan")
+#+BEGIN_SRC R :session *R*
 d <- read.table("subject1.tsv", sep="\t", head=T, as.is=T)
 head(d)
 #+END_SRC
 
+#+RESULTS:
+| practice | 1 | 2 | 2 | 1 |  790 |  917 | z r         | z r         |
+| practice | 2 | 3 | 1 | 1 | 1056 | 1544 | b t r       | t           |
+| practice | 3 | 3 | 3 | 1 |  607 | 1061 | n b h       | n b h       |
+| practice | 4 | 2 | 2 | 1 |  415 |  581 | v b         | v b         |
+| test     | 1 | 6 | 5 | 4 |  452 |  569 | c x z l v t | c x z v l t |
+| test     | 2 | 3 | 1 | 1 |  800 | 1544 | z y x       | x           |
+
 However, this repository also [[https://github.com/tmalsburg/py-span-task/blob/master/analysis_scripts/calculate_wmscores.R][includes a function]] that reads the data and calculates the usual working memory scores (described in Conway et al., 2005).
 
-# setwd("/home/malsburg/Documents/Uni/Projekte/MeasuringWorkingMemory/py-span-task/JapaneseOperationSpan")
 # round(t(wm.scores("subject1.tsv")), digits=3)
 #+BEGIN_SRC R :colnames yes :export both
 source("calculate_wmscores.R")
@@ -325,7 +333,7 @@ wm.scores("subject1.tsv")
 |-----+-------+-------+-------+-------+----------|
 |   0 | 0.729 | 0.333 | 0.722 | 0.315 |    0.556 |
 
-To process the data of all subjects in an experiment at once, you can use the following code:
+To process the data of all subjects in an experiment, you can use the following code:
 
 #+BEGIN_SRC R :colnames yes :export both
 source("calculate_wmscores.R")
