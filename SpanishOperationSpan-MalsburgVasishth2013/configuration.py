@@ -109,7 +109,7 @@ Presione la barra espaciadora para continuar."""
 instructions2 = """
 En la segunda parte, después de cada operación matemática, aparecerá una palabra que tiene que recordar.  Después de algunas operaciones, se le pedirá que teclee las palabras en cualquier orden y separadas por un espacio. Se pueden ignorar los acentos en las palabras cuando teclees la respuesta. Cuando haya terminado, presione la tecla enter. Una vez que haya tecleado las palabras, ya no tendrá que recordarlas.
 
-¡Por favor, responda tan rápido como pueda!  Si tarda demasiado tiempo en responder, se le indicará en la pantalla.  Cuando teclee las palabras, puede tomarse el tiempo que sea necesario.
+¡Por favor, responda tan rápido como pueda!  Si tarda demasiado tiempo en responder, se le indicará en la pantalla.  Cuando teclee las palabras, puede tomarse el tiempo que sea necesario. Memorisarze todas las palabras puede ser dificil, pero trata lo mejor que puedas. 
 
 Cuando esté preparado, sitúe los dedos índice sobre las teclas marcadas y utilice el dedo pulgar para presionar la barra espaciadora y comenzar la práctica.
 """.strip()
