@@ -57,7 +57,7 @@ Cuando esté preparado, sitúe los dedos índice sobre las teclas marcadas y uti
 # swapped. NOTE: don't use this if your target items are very short, e.g.
 # single digits, because by substitution every digit can be turned into the
 # correct one.
-allow_sloppy_spelling = False
+allow_sloppy_spelling = True
 
 # Number of processing items for practice:
 # Don't set this number too low.  The reaction times are measures during these
@@ -107,7 +107,7 @@ Presione la barra espaciadora para continuar."""
 # items.  This second phase of the overall test is supposed to make
 # participants familiar with the memory task.
 instructions2 = """
-En la segunda parte, después de cada operación matemática, aparecerá una palabra que tiene que recordar.  Después de algunas operaciones, se le pedirá que teclee las palabras en cualquier orden y separadas por un espacio. Cuando haya terminado, presione la tecla enter. Una vez que haya tecleado las palabras, ya no tendrá que recordarlas.
+En la segunda parte, después de cada operación matemática, aparecerá una palabra que tiene que recordar.  Después de algunas operaciones, se le pedirá que teclee las palabras en cualquier orden y separadas por un espacio. Se pueden ignorar los acentos en las palabras cuando teclees la respuesta. Cuando haya terminado, presione la tecla enter. Una vez que haya tecleado las palabras, ya no tendrá que recordarlas.
 
 ¡Por favor, responda tan rápido como pueda!  Si tarda demasiado tiempo en responder, se le indicará en la pantalla.  Cuando teclee las palabras, puede tomarse el tiempo que sea necesario.
 
