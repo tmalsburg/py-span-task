@@ -39,7 +39,7 @@ Presione la barra espaciadora cuando esté preparado para comenzar el test."""
 instructions1 = """
 En este test, debe indicar si el resultado de las siguientes operaciones matemáticas es correcto.  Entre las operaciones, aparecerán palabras que debe recordar. 
 
-Sin embargo, en esta primera práctica, únicamente debe juzgar el resultado de las operaciones matemáticas. En primer lugar, lea en voz alta la operación y después compruebe si el resultado es correcto. Presione la tecla con el círculo verde si cree que el resultado de la operación es correcto. Si, por el contrario, cree que el resultado es incorrecto, presione la tecla con el círculo rojo.
+Sin embargo, en esta primera práctica, únicamente debe juzgar el resultado de las operaciones matemáticas. En primer lugar, lea en voz alta la operación y después compruebe si el resultado es correcto. Presione la tecla "j" si cree que el resultado de la operación es correcto. Si, por el contrario, cree que el resultado es incorrecto, presione la tecla "f".
 
 Después de cada respuesta, se le informará si ha respondido correctamente. Esta información únicamente aparecerá durante los ejercicios de práctica, pero no durante el test principal.
 

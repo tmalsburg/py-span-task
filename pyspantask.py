@@ -538,7 +538,7 @@ if __name__=="__main__":
       for i in range(0, len(t)):
         for j in range(i+1, len(t)):
           if damerau_levenshtein(t[i], t[j]) < 2:
-            raise ValueError("These target items are too similar to be used with sloppy spelling: %s, %s" % (t[i], t[j]))
+            raise ValueError(("These target items are too similar to be used with sloppy spelling: %s, %s" % (t[i], t[j])).encode("utf-8"))
 
     # Check processing items:
 
