@@ -6,6 +6,11 @@ Py-Span-Task is a simple application for testing working memory span.
 
 ** News
 
+- May 28, 2016: ::
+  - Allow sloppy spelling in Spanish operation span task.  If people
+    ignore the accents on words, their responses are still counted as
+    correct.  However, other one-letter typos are also accepted.
+  - Improved instructions in Spanish operation span task.
 - June 1, 2015: ::
   - Added a Japanese operation span task (contributed by Kentaro Nakatani).
   - Added a German reading span task and a German operation span task (contributed by Paul Metzner).
@@ -31,7 +36,7 @@ Py-Span-Task is written in Python and uses the TK-toolkit for graphical user int
 
 Here's is a list of test batteries that are currently available in this repository.  Please note that neither the authors of py-span-task nor the authors of the test batteries will be liable for any damages or incorrect results.  See the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]] for details.
 
-- [[https://github.com/tmalsburg/py-span-task/tree/master/SpanishOperationSpan-MalsburgVasishth2013][Spanish operation span task]] (first used in [[http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232][von der Malsburg & Vasishth, 2013]])
+- [[https://github.com/tmalsburg/py-span-task/tree/master/SpanishOperationSpan][Spanish operation span task]] (first used in [[http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232][von der Malsburg & Vasishth, 2013]])
 - [[https://github.com/tmalsburg/py-span-task/tree/master/GermanOperationSpan][German operation span task]] (contributed by Paul Metzner)
 - [[https://github.com/tmalsburg/py-span-task/tree/master/GermanReadingSpan][German reading span task]] (contributed by Paul Metzner)
 - [[https://github.com/tmalsburg/py-span-task/tree/master/JapaneseOperationSpan][Japanese operation span task]] (contributed by Kentaro Nakatani)
@@ -45,9 +50,9 @@ This software and the included test batteries are released under the terms of th
 
 ** Configuration
 
-The configuration file is a Python file that sets a number of settings described below.  As an example, see the [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan-MalsburgVasishth2013/configuration.py][configuration of the Spanish operation span task]] included in this repository.  When you save the configuration file, make sure you save it in UTF-8 encoding.  This way special non-ASCII characters are correctly processed and displayed.
+The configuration file is a Python file that sets a number of settings described below.  As an example, see the [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan/configuration.py][configuration of the Spanish operation span task]] included in this repository.  When you save the configuration file, make sure you save it in UTF-8 encoding.  This way special non-ASCII characters are correctly processed and displayed.
 
-Apart from the configuration file, a task consists of a file containing the “target items” (the items that the participants have to memorize) and a file containing the “processing items”, i.e. the items used in the distractor task (equations or sentences or …).  [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan-MalsburgVasishth2013/target_words_spanish.txt][Here]] is the target items file of the Spanish operation span task and [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan-MalsburgVasishth2013/operations.txt][here]] is the processing items file.
+Apart from the configuration file, a task consists of a file containing the “target items” (the items that the participants have to memorize) and a file containing the “processing items”, i.e. the items used in the distractor task (equations or sentences or …).  [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan/target_words_spanish.txt][Here]] is the target items file of the Spanish operation span task and [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan/operations.txt][here]] is the processing items file.
 
 *** Settings
 
