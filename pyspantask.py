@@ -162,7 +162,7 @@ class PracticeProcessingItemsScript(object):
   def store_results(self, frame, key, **opts):
     if key not in responses.values():
       return
-    self.next = lambda s,f,k:None
+    self.next = lambda s,f,**o:None
     if key == responses[self.desired_answer]:
       self.correct += 1
       frame.set_text(practice_correct_response)
@@ -225,7 +225,7 @@ class TestScript(object):
     self.next = self.show_target
 
   def interrupt(self, frame, **opts):
-    self.next = lambda s,f,k:None
+    self.next = lambda s,f,**o:None
     frame.set_text(time_out_message)
     self.times.append(time.time() - self.start_time)
     ti = self.cur_targets.next()
@@ -239,7 +239,7 @@ class TestScript(object):
     if key not in responses.values():
       return
     frame.after_cancel(self.after_id)
-    self.next = lambda s,f,k:None
+    self.next = lambda s,f,**o:None
     self.times.append(time.time() - self.start_time)
     if key == responses[self.desired_answer]:
       self.correct += 1
