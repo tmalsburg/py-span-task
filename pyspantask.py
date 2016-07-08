@@ -138,7 +138,7 @@ class Text(object):
     frame.set_text(self.text, self.align)
     frame.next_script()
 
-class PracticeProcessinItemsScript(object):
+class PracticeProcessingItemsScript(object):
 
   def __init__(self, processing_items):
     self.processing_items = processing_items
@@ -595,7 +595,7 @@ if __name__=="__main__":
   main_frame = MainFrame(root,
                          Text(welcome_text, CENTER),
                          Text(instructions1),
-                         PracticeProcessinItemsScript(processing_items),
+                         PracticeProcessingItemsScript(processing_items),
                          Text(instructions2),
                          TestScript(processing_items, target_items,
                                     practice_levels, practice_items_per_level,
