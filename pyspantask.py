@@ -43,7 +43,7 @@ def damerau_levenshtein(s1, s2, eq=None):
       d[(i,j)] = min(d[(i-1,j)] + 1,                 # deletion
                      d[(i,j-1)] + 1,                 # insertion
                      d[(i-1,j-1)] + cost)            # substitution
-      if i>1 and j>1 and eq(s1[i], s2[j-1]) and eq(s1[i-1], s2[j]):
+      if i>0 and j>0 and eq(s1[i], s2[j-1]) and eq(s1[i-1], s2[j]):
         d[(i,j)] = min (d[(i,j)], d[i-2,j-2] + cost) # transposition
 
   return d[len1-1,len2-1]
@@ -51,7 +51,6 @@ def damerau_levenshtein(s1, s2, eq=None):
 def calculate_score(s, t, allow_sloppy_spelling, heed_order):
   # Allow one typo: omission, addition, substitution of a character, or
   # transposition of two characters.
-  # FIXME: d(ABCD, BCDA) > d(ABCD, BACD)
   if allow_sloppy_spelling:
     errors_allowed = 1
   else:
