@@ -45,8 +45,7 @@ Here's is a list of test batteries that are currently available in this reposito
 
 This software and the included test batteries are released under the terms of the GNU General Public License, version 2, or later versions of the license.  Before using the software please take a moment to read the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]].
 
-- [[https://github.com/tmalsburg/py-span-task/releases/tag/v2.0][Latest release]] (.zip or .tar.gz)
-- [[https://github.com/tmalsburg/py-span-task/archive/master.zip][Current development version]] (.zip)
+- [[https://github.com/tmalsburg/py-span-task/archive/master.zip][Current version]] (.zip)
 
 ** Configuration
 
