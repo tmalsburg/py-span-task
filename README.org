@@ -405,4 +405,4 @@ If you find bugs in the software, or errors in the material, please let us know 
 
 *** Who are the authors of Py-Span-Task?
 
-Py-Span-Task was originally written by Titus von der Malsburg during his dissertation project in [[http://www.ling.uni-potsdam.de/~vasishth/][Shravan Vasishth's lab]] at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.  Kentaro Nakatani contributed the Japanese operation span task.
+Py-Span-Task was originally written by [[https://tmalsburg.github.io/][Titus von der Malsburg]] during his dissertation project in [[http://www.ling.uni-potsdam.de/~vasishth/][Shravan Vasishth's lab]] at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.  Kentaro Nakatani contributed the Japanese operation span task.
