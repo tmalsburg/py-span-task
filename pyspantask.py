@@ -596,6 +596,7 @@ if __name__=="__main__":
   # Setup GUI and take off:
 
   root = Tkinter.Tk()
+  root.attributes('-fullscreen', True)
   main_frame = MainFrame(root,
                          Text(welcome_text, CENTER),
                          Text(instructions1),
