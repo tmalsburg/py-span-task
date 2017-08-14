@@ -96,6 +96,7 @@ class MainFrame(Tkinter.Frame):
 
     self.entry_var = Tkinter.StringVar("")
     self.entry = Tkinter.Entry(self, font=(fontname, fontsize),
+                               state="disabled",
                                textvar=self.entry_var)
     self.entry.pack(fill=X)
     self.entry.bind('<Return>', lambda e:self.key_pressed('<Return>'))
@@ -258,6 +259,7 @@ class TestScript(object):
   def finish_set(self, frame, **opts):
     frame.set_text("?")
     frame.entry.focus_set()
+    frame.entry.configure(state="normal")
     self.next = self.store_results
 
   def store_results(self, frame, key, **opts):
@@ -296,6 +298,7 @@ class TestScript(object):
       self.seen_targets = []
       frame.entry_var.set("")
       frame.focus_set()
+      frame.entry.configure(state="disabled")
       self.prepare_for_element(frame, **opts)
     except:
       self.finish(frame, **opts)
@@ -310,6 +313,7 @@ class TestScript(object):
     frame.entry_var.set("")
     frame.set_text(finished_message)
     frame.focus_set()
+    frame.entry.configure(state="disabled")
     frame.next_script(**opts)
 
 class GoodbyeScript(object):
