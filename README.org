@@ -6,6 +6,11 @@ Py-Span-Task is a simple application for testing working memory span.
 
 ** News
 
+- July 14, 2017: ::
+  - Switch to fullscreen on start-up.
+  - Prevent users from accidentally focusing the text field when it’s
+    not needed.  (Focusing the text field previously got the program
+    stuck as it was impossible to escape the text field.)
 - May 28, 2016: ::
   - Allow sloppy spelling in Spanish operation span task.  If people
     ignore the accents on words, their responses are still counted as
