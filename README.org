@@ -1,7 +1,6 @@
 [[http://dx.doi.org/10.5281/zenodo.18238][https://zenodo.org/badge/doi/10.5281/zenodo.18238.svg]]
 
 * Py-Span-Task
-
 Py-Span-Task is a simple application for testing working memory span.
 
 ** News
@@ -26,7 +25,6 @@ Py-Span-Task is a simple application for testing working memory span.
   - Added detailed documentation (see below).
 
 ** Key features:
-
 - Runs on Linux, OSX, Windows.
 - Follows the recommendations given in Conway, Kane, Bunting, Hambrick, Wilhelm, & Engle ([[http://link.springer.com/article/10.3758/BF03196772][Psychonomic Bulletin & Review, 2005]]).
 - Performs operation and reading span tests.
@@ -39,7 +37,6 @@ Py-Span-Task is a simple application for testing working memory span.
 Py-Span-Task is written in Python and uses the TK-toolkit for graphical user interfaces.  On Linux and OS X systems, the necessary software for running Py-Span-Task should already be installed.  Running Py-Span-Task on Windows may require installing Python (which usually includes the TK-toolkit).
 
 ** Test batteries
-
 Here's is a list of test batteries that are currently available in this repository.  Please note that neither the authors of py-span-task nor the authors of the test batteries will be liable for any damages or incorrect results.  See the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]] for details.
 
 - [[https://github.com/tmalsburg/py-span-task/tree/master/CzechOperationSpan][Czech operation span task with consonants as targets]] (contributed by Jan Chromý)
@@ -51,35 +48,29 @@ Here's is a list of test batteries that are currently available in this reposito
 - [[https://github.com/tmalsburg/py-span-task/tree/master/SpanishOperationSpan][Spanish operation span task with words as targets]] (first used in [[http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232][von der Malsburg & Vasishth, 2013]])
 
 ** Download
-
 This software and the included test batteries are released under the terms of the GNU General Public License, version 2, or later versions of the license.  Before using the software please take a moment to read the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]].
 
 - [[https://github.com/tmalsburg/py-span-task/archive/master.zip][Current version]] (.zip)
 
 ** Configuration
-
 The configuration file is a Python file that sets a number of settings described below.  As an example, see the [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan/configuration.py][configuration of the Spanish operation span task]] included in this repository.  When you save the configuration file, make sure you save it in UTF-8 encoding.  This way special non-ASCII characters are correctly processed and displayed.
 
 Apart from the configuration file, a task consists of a file containing the “target items” (the items that the participants have to memorize) and a file containing the “processing items”, i.e. the items used in the distractor task (equations or sentences or …).  [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan/target_words_spanish.txt][Here]] is the target items file of the Spanish operation span task and [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan/operations.txt][here]] is the processing items file.
 
 *** Settings
-
 All settings below are mandatory.  There are no default values.
 
 **** fontsize
-
 #+BEGIN_SRC python
 fontsize = 22
 #+END_SRC
 
 **** fontname
-
 #+BEGIN_SRC python
 fontname = "Helvetica"
 #+END_SRC
 
 **** processing_items_file
-
 File containing the items for the processing task (also called the verification task or distractor task).
 
 #+BEGIN_SRC python
@@ -96,7 +87,6 @@ Format of the file:   One item per line.  A sentence in case of a reading span t
 Make sure that your editor stores tabs as real tabs and does not expand them to spaces.
 
 **** target_items_file
-
 The file containing the items that the participants have to memorize.  In this file, there's one item per line.  Items can be letters, digits or sentences -- almost any string is ok.  Note that the test is case insensitive.  The target items will be displayed as they are stored in this file, but when they are compared with user input the case will be ignored.
 
 #+BEGIN_SRC python
@@ -104,7 +94,6 @@ target_items_file = "target_words_spanish.txt"
 #+END_SRC
 
 **** responses
-
 Possible responses and their respective keys: Before the colon is the response as indicated in the file with the processing items (=processing_items_file=).  After the colon you can specify the key on the keyboard that the participants should use to indicate that response.
 
 #+BEGIN_SRC python
@@ -115,7 +104,6 @@ responses = {
 #+END_SRC
 
 **** welcome_text
-
 Text shown at the beginning of the test.
 
 #+BEGIN_SRC python
@@ -123,7 +111,6 @@ welcome_text = """¡Bienvenido!"""
 #+END_SRC
 
 **** instructions1
-
 Text shown on page two.  Should give an explanation of the first round of practice trials.  In this phase only processing items are shown and there is no memory task.  The reaction time of the participants is measures to calculate a timeout after which trials are aborted if no response was given.  This allows every participant to work at their own pace.  People who are really good at checking equations will not have extra time to rehearse memory items.
 
 #+BEGIN_SRC python
@@ -131,7 +118,6 @@ instructions1 = """En este test, debe indicar …"""
 #+END_SRC
 
 **** allow_sloppy_spelling
-
 Whether or not minor typos are tolerated when people enter recalled items.  If set to =True=, the entered item is counted as correct if there's at most one of the following types of typos: omission of a caracter, addition of a character, substitution of a character. NOTE: Don't use this if your target items are very short, e.g. single digits, because by substitution every digit can be turned into the correct one.
 
 #+BEGIN_SRC python
@@ -139,7 +125,6 @@ allow_sloppy_spelling = False
 #+END_SRC
 
 **** practice_processing_items
-
 Number of processing items for the first practice phase.  Don't set this number too low.  The reaction times are measured during these practice trials and the mean + =time_out_factor= * SD is used as timeout during the actual test.
 
 #+BEGIN_SRC python
@@ -147,7 +132,6 @@ practice_processing_items = 2
 #+END_SRC
 
 **** time_out_factor
-
 The factor multiplied with the standard deviation plus the mean reaction time for the practice trials is the timeout, i.e. the time after which the presentation of the processing item is interrupted and the response is counted as wrong.
 
 #+BEGIN_SRC python
@@ -155,7 +139,6 @@ time_out_factor = 2.5
 #+END_SRC
 
 **** time_out_message
-
 Text shown when a participant took too much time to judge a processing item.
 
 #+BEGIN_SRC python
@@ -171,13 +154,11 @@ measure_time_after_trial = 3
 #+END_SRC
 
 **** heed_order
-
 If the order of recalled items does not matter, set this to =False=.  If recalled items should be entered in the order in which they were presented, set this to =True=.  Items that are correctly recalled but in the wrong position will then not count towards the score.
 
 #+BEGIN_SRC python
 heed_order = False
 #+END_SRC
-
 **** pseudo_random_targets
 
 This controls the order in which target items are presented.  Either the list of items is shuffled and then each element is presented one after the other.  When the list is finished it is shuffled again and the process starts all over.  Set =pseudo_random_targets= to =True= to get this behavior.  If set to =False=, items are drawn randomly from the set of all items.  The crucial difference is that an item can appear in two consecutive trials then.  If there are only a few target items, say the digits from 0 to 9, then true random selection is preferable.  Otherwise, people can easily guess: if they saw 1, 3, 5, 7, 9 in the last trial, they can guess that in the next they will see 0, 2, 4, 6, 8.  If the number of target item is large, shuffled presentation is better, because it avoids repetitions.
@@ -187,7 +168,6 @@ pseudo_random_targets = True
 #+END_SRC
 
 **** instructions2
-
 Text shown after the first practice phase.  Introduces the combined task with processing items /and/ target items for memorization.  This phase gives participants a feeling for the timeout and gives them a chance to ask question before the main test begins.
 
 #+BEGIN_SRC python
@@ -195,7 +175,6 @@ instructions2 = """En la segunda parte, …"""
 #+END_SRC
 
 **** practice_levels
-
 In each trial, a number of processing and target items are shown.  This variable specifies which numbers of items are presented, in the example below, either two or four.  The order of the numbers doesn't matter.
 
 #+BEGIN_SRC python
@@ -203,7 +182,6 @@ practice_levels = (2, 4)
 #+END_SRC
 
 **** practice_items_per_level
-
 Number of trials in the second practice phase per level.  In the present example, there would be 6 practice trials because there are 2 levels (2 and 4) and 3 trials per level.
 
 #+BEGIN_SRC python
@@ -211,7 +189,6 @@ practice_items_per_level = 3
 #+END_SRC
 
 **** practice_correct_response
-
 Response given in the second practice phase if a processing items was correctly judged.  (No feedback will be given during the main experiment.)
 
 #+BEGIN_SRC python
@@ -219,7 +196,6 @@ practice_correct_response = """¡Muy bien!"""
 #+END_SRC
 
 **** practice_incorrect_response
-
 Response given in the second practice phase if a processing items was incorrectly judged.  (No feedback will be given during the main experiment.)
 
 #+BEGIN_SRC python
@@ -227,7 +203,6 @@ practice_incorrect_response = """¡Lo siento, incorrecto!"""
 #+END_SRC
 
 **** practice_summary
-
 Summary presented when the second practice phase is finished.
 
 #+BEGIN_SRC python
@@ -238,7 +213,6 @@ Presione la barra espaciadora para continuar."""
 #+END_SRC
 
 **** instructions3
-
 This text appear after the familiarization period (phase two) and prepares participants for the main test.
 
 #+BEGIN_SRC python
@@ -246,7 +220,6 @@ instructions3 = """En este momento ya debe …"""
 #+END_SRC
 
 **** levels
-
 The levels of memory load that are tested in the main test.  The same as =practice_levels=.  Order doesn't matter.
 
 #+BEGIN_SRC python
@@ -254,7 +227,6 @@ levels = (2, 3, 4, 5, 6)
 #+END_SRC
 
 **** items_per_level
-
 Number of trials per level in the main test.  Like =practice_items_per_level=.
 
 #+BEGIN_SRC python
@@ -262,7 +234,6 @@ items_per_level = 1
 #+END_SRC
 
 **** next_message
-
 Text shown before each trial.
 
 #+BEGIN_SRC python
@@ -270,7 +241,6 @@ next_message = """Cuando esté preparado, sitúe los dedos índice sobre las tec
 #+END_SRC
 
 **** finished_message
-
 Text shown when the main test is finished.
 
 #+BEGIN_SRC python
@@ -280,7 +250,6 @@ Presione la barra espaciadora para continuar."""
 #+END_SRC
 
 **** target_display_time
-
 Specifies how the target items will be displayed (in milliseconds).
 
 #+BEGIN_SRC python
@@ -288,7 +257,6 @@ target_display_time = 1000
 #+END_SRC
 
 **** response_display_time
-
 Specifies how long the feedback (correct or wrong) will be displayed during the practice trials.
 
 #+BEGIN_SRC python
@@ -296,14 +264,13 @@ response_display_time = 1000
 #+END_SRC
 
 **** good_bye_text
-
 Text shown after at the end of the test.
 
 #+BEGIN_SRC python
 good_bye_text = """¡Gracias por su colaboración!"""
 #+END_SRC
-** Running the test
 
+** Running the test
 To run the test, open a terminal, enter the directory containing =pyspantask.py= and the configuration file of the test, and execute the following command:
 
 #+BEGIN_SRC sh
@@ -311,14 +278,13 @@ python pyspantask.py configuration.py
 #+END_SRC
 
 The test will prompt for a subject id and conduct some sanity checks on the test materials.  For example, it will check whether there are enough target items and whether they are sufficiently different to be uniquely identified when sloppy spelling is tolerated.
-** Results file
 
+** Results file
 The results will be stored in a file whose name consists of the subject id and the suffix =.tsv=.  The format of the results file is tab-separated-values and can be read by statistical software such as GNU R and spreadsheet applications such as LibreOffice Calc.
 
 A sample output file from the Japanese operation span task can be found [[https://github.com/tmalsburg/py-span-task/blob/master/JapaneseOperationSpan/subject1.tsv][here]].
 
 ** Analyzing the results
-
 In GNU R, the following command can be used to read a results file:
 
 # setwd("/home/malsburg/Documents/Uni/Projekte/MeasuringWorkingMemory/py-span-task/JapaneseOperationSpan")
@@ -363,21 +329,16 @@ head(d)
 See the manual of ~list.files~ for details.
 
 ** FAQ:
-
 *** What's the state of this project?
-
 We wrote the first version of Py-Span-Task in 2010.  Since then, researchers in a number of labs have successfully used this software to obtain working memory scores.  The software can thus be considered to be relatively reliable and ready for production use.
 
 *** Why have we developed this software?
-
 Operation and reading span tests play an important role in our research area.  Applications for testing working memory span were already available, however, running them required expensive software licenses.  Since these memory tests are actually relatively simple, we decided to write our own software.  Apart from saving money another benefit is that we know exactly what the software is doing and that we can fix it ourselves when something doesn't work as it is supposed to.  Since we publish the code for our test software, other researchers can also check how exactly we obtained our data.
 
 *** Can anyone use this software?
-
 Yes, everybody is invited to freely use our software.  We provide material for different operation and reading span tests in several languages.  You can use, modify, and improve this material if you want.  Note, however, that *we can't take any responsibility for the correctness of the software or its results* (see the license terms for details).
 
 *** How can this software be cited?
-
 If you use our software in your research, we would appreciate if you could acknowledge that in your publications.
 
 #+BEGIN_EXAMPLE
@@ -398,18 +359,13 @@ Below is a BibTeX entry:
 }
 #+END_SRC
 
-
-
 *** Can anyone modify the test software and the test batteries?
-
 Yes, feel free to do so.  If you modify the test software or the test material, please consider sharing these changes with us so that we may integrate them in our version.  If you create new test materials, or if you translate one of our tests into another language, we would also be happy to integrate these materials in our repository.  Your contribution will be duly acknowledged on this page.
 
 *** Does Py-Span-Task support non-western scripts?
-
 Yes, it does, provided that your configuration files and test materials are saved with the appropriate character encoding (UTF-8) and provided that you are using a font that supports these scripts.  On OS X and modern Linux distributions, the default encoding scheme is UTF-8, so it should work out of the box.  As far as I know, Windows does not use UTF-8 as its default encoding scheme.  Therefore you have to make sure to select UTF-8 when you save the material in your text editor.  Create a new entry in the issue tracker in case you run into problems.
 
 *** What if I find an error in the software or the test materials?
-
 If you find bugs in the software, or errors in the material, please let us know and we try to fix them.  To report a problem, please use the [[https://github.com/tmalsburg/py-span-task/issues][issue tracker]].
 
 *** Who are the authors of Py-Span-Task?
