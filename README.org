@@ -5,7 +5,8 @@
 Py-Span-Task is a simple application for testing working memory span.
 
 ** News
-
+- March 03, 2019: ::
+  - Added three test batteries for Czech (contributed by Jan Chromý).
 - July 14, 2017: ::
   - Switch to fullscreen on start-up.
   - Prevent users from accidentally focusing the text field when it’s
@@ -41,10 +42,13 @@ Py-Span-Task is written in Python and uses the TK-toolkit for graphical user int
 
 Here's is a list of test batteries that are currently available in this repository.  Please note that neither the authors of py-span-task nor the authors of the test batteries will be liable for any damages or incorrect results.  See the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]] for details.
 
-- [[https://github.com/tmalsburg/py-span-task/tree/master/SpanishOperationSpan][Spanish operation span task]] (first used in [[http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232][von der Malsburg & Vasishth, 2013]])
-- [[https://github.com/tmalsburg/py-span-task/tree/master/GermanOperationSpan][German operation span task]] (contributed by Paul Metzner)
-- [[https://github.com/tmalsburg/py-span-task/tree/master/GermanReadingSpan][German reading span task]] (contributed by Paul Metzner)
-- [[https://github.com/tmalsburg/py-span-task/tree/master/JapaneseOperationSpan][Japanese operation span task]] (contributed by Kentaro Nakatani)
+- [[https://github.com/tmalsburg/py-span-task/tree/master/CzechOperationSpan][Czech operation span task with consonants as targets]] (contributed by Jan Chromý)
+- [[https://github.com/tmalsburg/py-span-task/tree/master/CzechReadingSpanLetters][Czech reading span task with consonants as targets]] (contributed by Jan Chromý)
+- [[https://github.com/tmalsburg/py-span-task/tree/master/CzechReadingSpanWords][Czech reading span task with words as targers]] (contributed by Jan Chromý)
+- [[https://github.com/tmalsburg/py-span-task/tree/master/GermanOperationSpan][German operation span task with consonants as targets]] (contributed by Paul Metzner)
+- [[https://github.com/tmalsburg/py-span-task/tree/master/GermanReadingSpan][German reading span task with words as targets]] (contributed by Paul Metzner)
+- [[https://github.com/tmalsburg/py-span-task/tree/master/JapaneseOperationSpan][Japanese operation span task with consonants as targets]] (contributed by Kentaro Nakatani)
+- [[https://github.com/tmalsburg/py-span-task/tree/master/SpanishOperationSpan][Spanish operation span task with words as targets]] (first used in [[http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232][von der Malsburg & Vasishth, 2013]])
 
 ** Download
 
@@ -409,5 +413,4 @@ Yes, it does, provided that your configuration files and test materials are save
 If you find bugs in the software, or errors in the material, please let us know and we try to fix them.  To report a problem, please use the [[https://github.com/tmalsburg/py-span-task/issues][issue tracker]].
 
 *** Who are the authors of Py-Span-Task?
-
-Py-Span-Task was originally written by [[https://tmalsburg.github.io/][Titus von der Malsburg]] during his dissertation project in [[http://www.ling.uni-potsdam.de/~vasishth/][Shravan Vasishth's lab]] at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.  Kentaro Nakatani contributed the Japanese operation span task.
+Py-Span-Task was originally written by [[https://tmalsburg.github.io/][Titus von der Malsburg]] during his dissertation project in [[http://www.ling.uni-potsdam.de/~vasishth/][Shravan Vasishth's lab]] at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.  Kentaro Nakatani contributed the Japanese operation span task and Jan Chomý the three Czech tests.
