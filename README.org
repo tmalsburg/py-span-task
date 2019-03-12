@@ -4,8 +4,10 @@
 Py-Span-Task is a simple application for testing working memory span.
 
 ** News
+- March 12, 2019: ::
+  - Added a Russian operation span task (contributed by Anna Laurinavichyute).
 - March 03, 2019: ::
-  - Added three test batteries for Czech (contributed by Jan Chromý).
+  - Added three test batteries for Czech (contributed by Jan Chromý and the [[https://ercel.ff.cuni.cz/][ERCEL Lab]]).
 - July 14, 2017: ::
   - Switch to fullscreen on start-up.
   - Prevent users from accidentally focusing the text field when it’s
