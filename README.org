@@ -41,12 +41,13 @@ Py-Span-Task is written in Python and uses the TK-toolkit for graphical user int
 ** Test batteries
 Here's is a list of test batteries that are currently available in this repository.  Please note that neither the authors of py-span-task nor the authors of the test batteries will be liable for any damages or incorrect results.  See the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]] for details.
 
-- [[https://github.com/tmalsburg/py-span-task/tree/master/CzechOperationSpan][Czech operation span task with consonants as targets]] (contributed by Jan Chromý)
-- [[https://github.com/tmalsburg/py-span-task/tree/master/CzechReadingSpanLetters][Czech reading span task with consonants as targets]] (contributed by Jan Chromý)
-- [[https://github.com/tmalsburg/py-span-task/tree/master/CzechReadingSpanWords][Czech reading span task with words as targers]] (contributed by Jan Chromý)
+- [[https://github.com/tmalsburg/py-span-task/tree/master/CzechOperationSpan][Czech operation span task with consonants as targets]] (contributed by Jan Chromý and the [[https://ercel.ff.cuni.cz/][ERCEL Lab]])
+- [[https://github.com/tmalsburg/py-span-task/tree/master/CzechReadingSpanLetters][Czech reading span task with consonants as targets]] (contributed by Jan Chromý and the [[https://ercel.ff.cuni.cz/][ERCEL Lab]])
+- [[https://github.com/tmalsburg/py-span-task/tree/master/CzechReadingSpanWords][Czech reading span task with words as targers]] (contributed by Jan Chromý and the [[https://ercel.ff.cuni.cz/][ERCEL Lab]])
 - [[https://github.com/tmalsburg/py-span-task/tree/master/GermanOperationSpan][German operation span task with consonants as targets]] (contributed by Paul Metzner)
 - [[https://github.com/tmalsburg/py-span-task/tree/master/GermanReadingSpan][German reading span task with words as targets]] (contributed by Paul Metzner)
 - [[https://github.com/tmalsburg/py-span-task/tree/master/JapaneseOperationSpan][Japanese operation span task with consonants as targets]] (contributed by Kentaro Nakatani)
+- [[https://github.com/tmalsburg/py-span-task/tree/master/RussianOperationSpan][Russian operation span task with consonants as targets]] (contributed by Anna Laurinavichyute)
 - [[https://github.com/tmalsburg/py-span-task/tree/master/SpanishOperationSpan][Spanish operation span task with words as targets]] (first used in [[http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232][von der Malsburg & Vasishth, 2013]])
 
 ** Download
