@@ -44,6 +44,7 @@ Here's is a list of test batteries that are currently available in this reposito
 - [[https://github.com/tmalsburg/py-span-task/tree/master/CzechOperationSpan][Czech operation span task with consonants as targets]] (contributed by Jan Chromý and the [[https://ercel.ff.cuni.cz/][ERCEL Lab]])
 - [[https://github.com/tmalsburg/py-span-task/tree/master/CzechReadingSpanLetters][Czech reading span task with consonants as targets]] (contributed by Jan Chromý and the [[https://ercel.ff.cuni.cz/][ERCEL Lab]])
 - [[https://github.com/tmalsburg/py-span-task/tree/master/CzechReadingSpanWords][Czech reading span task with words as targers]] (contributed by Jan Chromý and the [[https://ercel.ff.cuni.cz/][ERCEL Lab]])
+- [[https://github.com/tmalsburg/py-span-task/tree/master/GermanOperationSpan][English operation span task with consonants as targets]] (contributed by Cyrus Shaoul)
 - [[https://github.com/tmalsburg/py-span-task/tree/master/GermanOperationSpan][German operation span task with consonants as targets]] (contributed by Paul Metzner)
 - [[https://github.com/tmalsburg/py-span-task/tree/master/GermanReadingSpan][German reading span task with words as targets]] (contributed by Paul Metzner)
 - [[https://github.com/tmalsburg/py-span-task/tree/master/JapaneseOperationSpan][Japanese operation span task with consonants as targets]] (contributed by Kentaro Nakatani)
