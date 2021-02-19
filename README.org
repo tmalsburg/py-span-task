@@ -4,6 +4,7 @@
 Py-Span-Task is a simple application for testing working memory span.
 
 ** News
+- February 19, 2021 :: Migrated the code from Python 2 to Python 3.  Thanks to Brad Buran (@bburan) for this contribution. 
 - March 12, 2019: ::
   - Added a Russian operation span task (contributed by Anna Laurinavichyute).
 - March 03, 2019: ::
@@ -36,7 +37,7 @@ Py-Span-Task is a simple application for testing working memory span.
 - Saves a protocol of the test procedure in a simple text file that can be loaded in R, Excel, SPSS, …
 - Includes an R script for calculating a range of other measures.
 
-Py-Span-Task is written in Python and uses the TK-toolkit for graphical user interfaces.  On Linux and OS X systems, the necessary software for running Py-Span-Task should already be installed.  Running Py-Span-Task on Windows may require installing Python (which usually includes the TK-toolkit).
+Py-Span-Task is written in Python 3 and uses the TK-toolkit for graphical user interfaces.  On Linux and OS X systems, the necessary software for running Py-Span-Task should already be installed.  Running Py-Span-Task on Windows may require installing Python 3 (which usually includes the TK-toolkit).
 
 ** Test batteries
 Here's is a list of test batteries that are currently available in this repository.  Please note that neither the authors of py-span-task nor the authors of the test batteries will be liable for any damages or incorrect results.  See the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]] for details.
@@ -375,4 +376,4 @@ Yes, it does, provided that your configuration files and test materials are save
 If you find bugs in the software, or errors in the material, please let us know and we try to fix them.  To report a problem, please use the [[https://github.com/tmalsburg/py-span-task/issues][issue tracker]].
 
 *** Who are the authors of Py-Span-Task?
-Py-Span-Task was originally written by [[https://tmalsburg.github.io/][Titus von der Malsburg]] during his dissertation project in [[http://www.ling.uni-potsdam.de/~vasishth/][Shravan Vasishth's lab]] at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.  Kentaro Nakatani contributed the Japanese operation span task and Jan Chomý the three Czech tests.
+Py-Span-Task was originally written by [[https://tmalsburg.github.io/][Titus von der Malsburg]] during his dissertation project at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.  Kentaro Nakatani contributed the Japanese operation span task, Jan Chomý the three Czech tests, and Anna Laurinavichyute the Russian test.  Brad Buran migrated the code from Python 2 to Python 3.
