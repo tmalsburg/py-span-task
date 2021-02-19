@@ -10,8 +10,8 @@ __copyright__ = "Copyright 2010, Titus von der Malsburg"
 __license__ = "GPL v2"
 
 import sys, os, re, math, time, random
-import Tkinter, Tkdnd, tkFileDialog
-from Tkconstants import PAGES, UNITS, NORMAL, RAISED, SUNKEN, HORIZONTAL, RIGHT, BOTH, LEFT, BOTTOM, TOP, NW, HIDDEN, X, Y, ALL, CENTER
+import tkinter, tkinter.dnd, tkinter.filedialog
+from tkinter.constants import PAGES, UNITS, NORMAL, RAISED, SUNKEN, HORIZONTAL, RIGHT, BOTH, LEFT, BOTTOM, TOP, NW, HIDDEN, X, Y, ALL, CENTER
 from warnings import warn
 
 try:
@@ -29,13 +29,13 @@ def damerau_levenshtein(s1, s2, eq=None):
   d = {}
   len1 = len(s1)
   len2 = len(s2)
-  for i in xrange(-1,len1+1):
+  for i in range(-1,len1+1):
     d[(i,-1)] = i+1
-  for j in xrange(-1,len2+1):
+  for j in range(-1,len2+1):
     d[(-1,j)] = j+1
 
-  for i in xrange(0,len1):
-    for j in xrange(0,len2):
+  for i in range(0,len1):
+    for j in range(0,len2):
       if eq(s1[i], s2[j]):
         cost = 0
       else:
@@ -76,26 +76,26 @@ def calculate_score(s, t, allow_sloppy_spelling, heed_order):
 
   return correct
 
-class MainFrame(Tkinter.Frame):
+class MainFrame(tkinter.Frame):
 
   def __init__(self, master, *scripts, **opts):
 
     # build gui:
-    Tkinter.Frame.__init__(self, master, **opts)
+    tkinter.Frame.__init__(self, master, **opts)
     master.title("Py-Span-Task")
 
     self.scripts = list(scripts)
     self.opts = {}
 
-    self.display_var = Tkinter.StringVar("")
+    self.display_var = tkinter.StringVar("")
     width = master.winfo_screenwidth()
-    self.display = Tkinter.Message(self, justify=LEFT, textvar=self.display_var,
+    self.display = tkinter.Message(self, justify=LEFT, textvar=self.display_var,
                      font=(fontname, fontsize),
                      width=width-(width/10), bg="white")
     self.display.pack(fill=BOTH, expand=1)
 
-    self.entry_var = Tkinter.StringVar("")
-    self.entry = Tkinter.Entry(self, font=(fontname, fontsize),
+    self.entry_var = tkinter.StringVar("")
+    self.entry = tkinter.Entry(self, font=(fontname, fontsize),
                                state="disabled",
                                textvar=self.entry_var)
     self.entry.pack(fill=X)
@@ -107,7 +107,7 @@ class MainFrame(Tkinter.Frame):
     def event_handler_creator(frame, key):
       return lambda e:frame.key_pressed(key)
 
-    for v in responses.values():
+    for v in list(responses.values()):
       self.bind(v, event_handler_creator(self, v))
 
     self.focus_set()
@@ -154,14 +154,14 @@ class PracticeProcessingItemsScript(object):
   def show_element(self, frame, key=None, **opts):
     if key != None and key != "<space>":
       return
-    element, self.desired_answer = [s.strip() for s in self.processing_items.next().split('\t')]
+    element, self.desired_answer = [s.strip() for s in next(self.processing_items).split('\t')]
     self.times.append(time.time())
     frame.set_text(element)
     self.number += 1
     self.next = self.store_results
 
   def store_results(self, frame, key, **opts):
-    if key not in responses.values():
+    if key not in list(responses.values()):
       return
     self.next = lambda s,f,**o:None
     if key == responses[self.desired_answer]:
@@ -173,7 +173,7 @@ class PracticeProcessingItemsScript(object):
       frame.after(response_display_time, lambda:self.show_results(frame, **opts))
     else:
       frame.after(response_display_time, lambda:self.show_element(frame, **opts))
-  
+
   def show_results(self, frame, **opts):
     self.times.append(time.time())
 
@@ -183,7 +183,7 @@ class PracticeProcessingItemsScript(object):
 
     time_out = int(1000 * (mean(diff(self.times[measure_time_after_trial:]))
           + time_out_factor * sd(diff(self.times[measure_time_after_trial:]))))
-    
+
     frame.next_script(time_out=time_out, **opts)
 
 class TestScript(object):
@@ -213,7 +213,7 @@ class TestScript(object):
 
   def next_set(self):
     size = self.sets.pop()
-    return [self.processing_items.next() for x in xrange(size)], self.target_items.get_set(size)
+    return [next(self.processing_items) for x in range(size)], self.target_items.get_set(size)
 
   def show_element(self, frame, key=None, time_out=None, **opts):
     if key != None and key != "<space>":
@@ -229,7 +229,7 @@ class TestScript(object):
     self.next = lambda s,f,**o:None
     frame.set_text(time_out_message)
     self.times.append(time.time() - self.start_time)
-    ti = self.cur_targets.next()
+    ti = next(self.cur_targets)
     self.seen_targets.append(ti)
     if not self.cur:
       frame.after(target_display_time, lambda:self.finish_set(frame, **opts))
@@ -237,21 +237,21 @@ class TestScript(object):
       frame.after(target_display_time, lambda:self.show_element(frame, **opts))
 
   def show_target(self, frame, key, **opts):
-    if key not in responses.values():
+    if key not in list(responses.values()):
       return
     frame.after_cancel(self.after_id)
     self.next = lambda s,f,**o:None
     self.times.append(time.time() - self.start_time)
     if key == responses[self.desired_answer]:
       self.correct += 1
-    ti = self.cur_targets.next()
+    ti = next(self.cur_targets)
     self.seen_targets.append(ti)
     frame.set_text(ti)
     if not self.cur:
       frame.after(target_display_time, lambda:self.finish_set(frame, **opts))
     else:
       frame.after(target_display_time, lambda:self.show_element(frame, **opts))
-  
+
   def prepare_for_element(self, frame, **opts):
     frame.set_text(next_message)
     self.next = self.show_element
@@ -278,11 +278,11 @@ class TestScript(object):
     recalled = calculate_score(s, t, allow_sloppy_spelling, heed_order)
 
     self.proportion_recalled.append(float(recalled) / float(self.level))
-        
-    print "trial:", self.phase, self.set_no
-    print "  presented:", ", ".join(t)
-    print "  entered:", ", ".join(s)
-    print "  correct:", recalled, "out of", self.level
+
+    print("trial:", self.phase, self.set_no)
+    print("  presented:", ", ".join(t))
+    print("  entered:", ", ".join(s))
+    print("  correct:", recalled, "out of", self.level)
 
     self.results.append("%s\t%d\t%d\t%d\t%d\t%d\t%d\t%s\t%s"
                         % (self.phase, self.set_no, self.level, recalled,
@@ -330,7 +330,7 @@ def shuffled_lines(filename):
   Removes duplicate lines, iterates over the lines, shuffles them, and
   restarts iterating.
   """
-  lines = list(set([l.decode("utf-8").strip() for l in file(filename)]))
+  lines = list(set([l.strip() for l in open(filename, encoding='utf-8')]))
   while 1:
     random.shuffle(lines)
     for l in lines:
@@ -342,7 +342,7 @@ class ShuffledItems:
     self.items = shuffled_lines(filename)
 
   def get_set(self, size):
-    return (self.items.next() for i in xrange(size))
+    return (next(self.items) for i in range(size))
 
 class RandomItems:
 
@@ -383,23 +383,22 @@ def store_line(s, mode='a'):
   Appends the given string plus a newline character to the file
   containing the results.
   """
-  f = file(results_file, mode)
-  f.write((s + '\n').encode("utf-8"))
-  f.close()
+  with open(results_file, mode, encoding='utf-8') as fh:
+    fh.write(s + '\n')
 
 def request_subject_id():
   """
   Prompt the user to enter a subject ID and check if the input
   conforms with the required format.  If not ask again.
   """
-  print "Please enter a subject id consisting of numbers and letters: ",
+  print("Please enter a subject id consisting of numbers and letters: ", end=' ')
   sid = sys.stdin.readline()[:-1]
   mo = re.match('[a-zA-Z0-9]+', sid)
   if mo and mo.group() == sid:
     return sid
   else:
     return request_subject_id()
-    
+
 def duplicates(s):
   """
   Returns a list containing the elements of s that occur more than
@@ -408,7 +407,7 @@ def duplicates(s):
   d = {}
   for i in s:
     d[i] = d.get(i, 0) + 1
-  return [i for i,n in d.items() if n>1]
+  return [i for i,n in list(d.items()) if n>1]
 
 class ask_if_warnings(object):
   """
@@ -447,8 +446,8 @@ class ask_if_warnings(object):
       raise RuntimeError("Cannot exit %r without entering first" % self)
     self._module.showwarning = self._showwarning
     if self._warned:
-      print self._message
-      print "y/n:"
+      print(self._message)
+      print("y/n:")
       while 1:
         sid = sys.stdin.readline()[:-1]
         if sid=="n":
@@ -456,14 +455,14 @@ class ask_if_warnings(object):
         elif sid=="y":
           break
         else:
-          print "Please enter y or n."
+          print("Please enter y or n.")
 
 if __name__=="__main__":
 
   # Read configuration:
 
   if len(sys.argv) < 2:
-    print "Usage: %s config_file [results_file]" % sys.argv[0]
+    print("Usage: %s config_file [results_file]" % sys.argv[0])
     sys.exit(1)
   else:
     config_file = sys.argv[1]
@@ -474,8 +473,8 @@ if __name__=="__main__":
 
   # Check if the output file already exists:
   while os.path.exists(results_file):
-    print "A results file for this subject id already exists."
-    print "Do you want to overwrite it? (y/n)"
+    print("A results file for this subject id already exists.")
+    print("Do you want to overwrite it? (y/n)")
     if sys.stdin.readline().strip() == "y":
       break
     else:
@@ -483,7 +482,7 @@ if __name__=="__main__":
 
   # Load and sanity check the configuration:
 
-  exec file(config_file)
+  exec(open(config_file).read())
 
   with ask_if_warnings(lambda:sys.exit(1), "There were warnings.  Do you want to proceed?"):
 
@@ -516,17 +515,17 @@ if __name__=="__main__":
     # Check target items:
 
     # Check if targets are unique:
-    t = [l.decode("utf-8").strip() for l in file(target_items_file)]
+    t = [l.strip() for l in open(target_items_file, encoding='utf-8')]
     if len(t)!=len(set(t)):
       warn("There are duplicates in the list of targets: "
-           + ', '.join(duplicates(t)))  
+           + ', '.join(duplicates(t)))
 
     # The number of target items must be larger than the size of the
     # largest level:
     if len(t) <= max(practice_levels + levels):
       raise ValueError("There are too few target items for the largest set size.")
 
-    # Check if the targets are single letters/numbers 
+    # Check if the targets are single letters/numbers
     single_letters = all(len(x)==1 for x in t)
 
     # Warn if the number of targets is not resonably bigger than the
@@ -552,7 +551,7 @@ if __name__=="__main__":
       warn("Too few practice trials give you an unreliable estimate of the time needed by the participant to do the task.")
 
     # Have unique processing items:
-    t = [l.decode("utf-8").strip() for l in file(processing_items_file)]
+    t = [l.strip() for l in open(processing_items_file, encoding='utf-8')]
     if len(t)!=len(set(t)):
       warn(("There are duplicates in the list of operations: "
            + ', '.join(duplicates(t))).encode("utf-8"))
@@ -569,7 +568,7 @@ if __name__=="__main__":
     r = set([l.split("\t")[1] for l in t])
     if set(responses.keys()) != r:
       raise ValueError("There is a response other than y and n for at least one verification item.")
-    
+
   # End sanity checks.
 
   store_line("# Py-span-task", 'w')
@@ -595,7 +594,7 @@ if __name__=="__main__":
 
   # Setup GUI and take off:
 
-  root = Tkinter.Tk()
+  root = tkinter.Tk()
   root.attributes('-fullscreen', True)
   main_frame = MainFrame(root,
                          Text(welcome_text, CENTER),
