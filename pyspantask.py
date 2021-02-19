@@ -107,7 +107,7 @@ class MainFrame(tkinter.Frame):
     def event_handler_creator(frame, key):
       return lambda e:frame.key_pressed(key)
 
-    for v in list(responses.values()):
+    for v in responses.values():
       self.bind(v, event_handler_creator(self, v))
 
     self.focus_set()
@@ -161,7 +161,7 @@ class PracticeProcessingItemsScript(object):
     self.next = self.store_results
 
   def store_results(self, frame, key, **opts):
-    if key not in list(responses.values()):
+    if key not in responses.values():
       return
     self.next = lambda s,f,**o:None
     if key == responses[self.desired_answer]:
@@ -237,7 +237,7 @@ class TestScript(object):
       frame.after(target_display_time, lambda:self.show_element(frame, **opts))
 
   def show_target(self, frame, key, **opts):
-    if key not in list(responses.values()):
+    if key not in responses.values():
       return
     frame.after_cancel(self.after_id)
     self.next = lambda s,f,**o:None
@@ -407,7 +407,7 @@ def duplicates(s):
   d = {}
   for i in s:
     d[i] = d.get(i, 0) + 1
-  return [i for i,n in list(d.items()) if n>1]
+  return [i for i,n in d.items() if n>1]
 
 class ask_if_warnings(object):
   """
