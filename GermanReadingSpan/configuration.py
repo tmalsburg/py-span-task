@@ -84,7 +84,7 @@ und drücken Sie die Leertaste, um mit der Übung zu beginnen."""
 instructions3 = """Im zweiten Teil der Übung wird nach jeder Ihrer Bewertungen zusätzlich
 kurz ein Wort eingeblendet. Ihre Aufgabe ist es, sich diese Wörter
 zu merken, bis Sie nach einigen Sätzen dazu aufgefordert werden,
-sie einzugeben.
+diese einzugeben.
 
 Trennen Sie die Wörter mit Leerzeichen und drücken Sie "Enter",
 wenn Sie fertig sind. Bitte vermeiden Sie Tippfehler und nehmen
@@ -101,7 +101,7 @@ was von Ihnen erwartet wird. Wenn Sie keine Fragen mehr haben,
 beginnen wir nun mit dem eigentlichen Test.
 
 Geben Sie die Bewertung so schnell wie möglich ab!
-Nach einer bestimmten Zeit wird die Rechnung abgebrochen.
+Sie haben nur eine begrenzte Zeit dafür zur Verfügung.
 
 
 Legen Sie nun Ihre Finger auf F- und J-Taste
@@ -110,7 +110,7 @@ und drücken Sie die Leertaste, um fortzufahren."""
 ## TEXT SHOWN AFTER CORRECT AND INCORRECT RESPONSES DURING PROCESSING TRIALS AND TEXT FOR SUMMARIZING FEEDBACK
 practice_correct_response = "Sehr gut!"
 practice_incorrect_response = "Leider falsch!"
-practice_summary = """Von %(total)s Rechnungen haben Sie %(correct)s korrekt bewertet.
+practice_summary = """Von %(total)s Versuchen haben Sie %(correct)s korrekt bewertet.
 
 Drücken Sie die Leertaste, um fortzufahren."""
 
