@@ -90,7 +90,9 @@ Sie üben zunächst die Beurteilung der Sätze und erhalten eine Rückmeldung da
 
 Arbeiten Sie bitte genau und zügig und machen Sie keine Pausen!  Falls Sie noch Fragen haben, stellen Sie sie bitte jetzt.
 
-Bitte legen Sie nun Ihre Finger auf F- und J-Taste und drücken Sie die Leertaste, um mit der Übung zu beginnen."""
+Bitte legen Sie nun Ihre Finger auf F- und J-Taste und drücken Sie die Leertaste, um mit der Übung zu beginnen.
+
+Bitte denken Sie daran, die Sätze laut vorzulesen."""
 
 # Instructions shown after the processing trials and before practice
 # trials for the full task.  This second phase is supposed to
@@ -101,7 +103,9 @@ instructions2 = """Im zweiten Teil der Übung wird nach jeder Ihrer Bewertungen 
 
 Trennen Sie die Wörter mit Leerzeichen und drücken Sie "Enter", wenn Sie fertig sind. Bitte vermeiden Sie Tippfehler und nehmen Sie eine Korrektur vor, falls Ihnen doch ein Fehler unterlaufen ist. Auf Groß- und Kleinschreibung müssen Sie nicht achten.
 
-Legen Sie Ihre Finger auf F- und J-Taste und drücken Sie die Leertaste, um fortzufahren."""
+Legen Sie Ihre Finger auf F- und J-Taste und drücken Sie die Leertaste, um fortzufahren.
+
+Bitte denken Sie daran, die Sätze laut vorzulesen."""
 
 # These instructions appear after the practice period and
 # prepares participants for the actual test:
@@ -110,8 +114,9 @@ instructions3 = """Sie sollten jetzt eine Vorstellung davon haben, was von Ihnen
 
 Geben Sie die Bewertung so schnell wie möglich ab!  Sie haben nur eine begrenzte Zeit dafür zur Verfügung.
 
+Legen Sie nun Ihre Finger auf F- und J-Taste und drücken Sie die Leertaste, um fortzufahren.
 
-Legen Sie nun Ihre Finger auf F- und J-Taste und drücken Sie die Leertaste, um fortzufahren."""
+Bitte denken Sie daran, die Sätze laut vorzulesen."""
 
 # Text shown after correct and incorrect responses during processing
 # trials and text for summarizing feedback.
