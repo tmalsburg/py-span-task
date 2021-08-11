@@ -391,7 +391,7 @@ def request_subject_id():
   Prompt the user to enter a subject ID and check if the input
   conforms with the required format.  If not ask again.
   """
-  print("Please enter a subject id consisting of numbers and letters: ", end=' ')
+  print("Please enter a subject id consisting of numbers and letters:", end=' ', flush=True)
   sid = sys.stdin.readline()[:-1]
   mo = re.match('[a-zA-Z0-9]+', sid)
   if mo and mo.group() == sid:
