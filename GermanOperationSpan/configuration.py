@@ -4,7 +4,7 @@
 fontname = "Helvetica"
 
 # AND AT WHICH SIZE?
-fontsize = 28
+fontsize = 24
 
 ## FILE WITH ITEMS FOR THE PROCESSING COMPONENT. EACH LINE MUST CONTAIN A PROCESSING ITEM (SENTENCE OR OPERATION) AND THE PROPER RESPNSE (y OR n), SEPERATED BY A TAB.
 processing_items_file = "operations.txt"
