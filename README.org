@@ -4,6 +4,7 @@
 Py-Span-Task is a simple application for testing working memory span.
 
 ** News
+- June 28, 2022 :: Fixed a bug that cause the GUI to get stuck on the first page.
 - February 19, 2021 :: Migrated the code from Python 2 to Python 3.  Thanks to Brad Buran (@bburan) for this contribution.
 - March 12, 2019: ::
   - Added a Russian operation span task (contributed by Anna Laurinavichyute).
