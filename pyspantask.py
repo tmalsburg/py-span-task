@@ -5,20 +5,14 @@
 Py-Span-Task is a simple application for testing working memory span.
 """
 
-__author__ = "Titus von der Malsburg <malsburg@posteo.de>"
+__author__    = "Titus von der Malsburg <malsburg@posteo.de>"
 __copyright__ = "Copyright 2010, Titus von der Malsburg"
-__license__ = "GPL v2"
+__license__   = "GPL v2"
 
 import sys, os, re, math, time, random
 import tkinter, tkinter.dnd, tkinter.filedialog
 from tkinter.constants import PAGES, UNITS, NORMAL, RAISED, SUNKEN, HORIZONTAL, RIGHT, BOTH, LEFT, BOTTOM, TOP, NW, HIDDEN, X, Y, ALL, CENTER
 from warnings import warn
-
-try:
-  # Fails in Python > 2.6:
-  from future import with_statement
-except:
-  pass
 
 def damerau_levenshtein(s1, s2, eq=None):
   """
@@ -471,7 +465,8 @@ if __name__=="__main__":
   else:
     results_file = sys.argv[2]
 
-  # Check if the output file already exists:
+  # Check whether the output file already exists:
+
   while os.path.exists(results_file):
     print("A results file for this subject id already exists.")
     print("Do you want to overwrite it? (y/n)")
@@ -486,7 +481,7 @@ if __name__=="__main__":
 
   with ask_if_warnings(lambda:sys.exit(1), "There were warnings.  Do you want to proceed?"):
 
-    # Make sure that all parameters are present in the configuration file.
+    # Make sure that all parameters are present in the configuration file:
     t = set("""fontname fontname processing_items_file target_items_file responses
       welcome_text instructions1 allow_sloppy_spelling practice_processing_items
       measure_time_after_trial heed_order pseudo_random_targets practice_levels
@@ -514,7 +509,7 @@ if __name__=="__main__":
 
     # Check target items:
 
-    # Check if targets are unique:
+    # Check whether targets are unique:
     t = [l.strip() for l in open(target_items_file, encoding='utf-8')]
     if len(t)!=len(set(t)):
       warn("There are duplicates in the list of targets: "
@@ -525,7 +520,7 @@ if __name__=="__main__":
     if len(t) <= max(practice_levels + levels):
       raise ValueError("There are too few target items for the largest set size.")
 
-    # Check if the targets are single letters/numbers
+    # Check whether the targets are single letters/numbers
     single_letters = all(len(x)==1 for x in t)
 
     # Warn if the number of targets is not resonably bigger than the
@@ -592,7 +587,7 @@ if __name__=="__main__":
 
   processing_items = shuffled_lines(processing_items_file)
 
-  # Setup GUI and take off:
+  # Set up GUI and take off:
 
   root = tkinter.Tk()
   root.attributes('-fullscreen', True)
