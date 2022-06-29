@@ -60,6 +60,17 @@ This software and the included test batteries are released under the terms of th
 
 - [[https://github.com/tmalsburg/py-span-task/archive/master.zip][Current version]] (.zip)
 
+** Running a test
+To run a test, open a terminal, enter the directory containing =pyspantask.py= and the configuration file of the test, and execute the following command:
+
+#+BEGIN_SRC sh
+python pyspantask.py configuration.py
+#+END_SRC
+
+The test will prompt for a subject id and conduct some sanity checks on the test materials.  For example, it will check whether there are enough target items and whether they are sufficiently different to be uniquely identified when sloppy spelling is tolerated.
+
+The test runs in full screen.  Nonetheless it may be necessary to click on it with the mouse to make it receive keyboard presses.  The test can be aborted at any time using the escape key.
+
 ** Configuration
 The configuration file is a Python file that sets a number of settings described below.  As an example, see the [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan/configuration.py][configuration of the Spanish operation span task]] included in this repository.  When you save the configuration file, make sure you save it in UTF-8 encoding.  This way special non-ASCII characters are correctly processed and displayed.
 
@@ -277,15 +288,6 @@ Text shown after at the end of the test.
 #+BEGIN_SRC python
 good_bye_text = """¡Gracias por su colaboración!"""
 #+END_SRC
-
-** Running the test
-To run the test, open a terminal, enter the directory containing =pyspantask.py= and the configuration file of the test, and execute the following command:
-
-#+BEGIN_SRC sh
-python pyspantask.py configuration.py
-#+END_SRC
-
-The test will prompt for a subject id and conduct some sanity checks on the test materials.  For example, it will check whether there are enough target items and whether they are sufficiently different to be uniquely identified when sloppy spelling is tolerated.
 
 ** Results file
 The results will be stored in a file whose name consists of the subject id and the suffix =.tsv=.  The format of the results file is tab-separated-values and can be read by statistical software such as GNU R and spreadsheet applications such as LibreOffice Calc.
