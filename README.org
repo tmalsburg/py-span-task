@@ -9,7 +9,7 @@ Py-Span-Task is a simple application for testing working memory span.
 - March 12, 2019: ::
   - Added a Russian operation span task (contributed by Anna Laurinavichyute).
 - March 03, 2019: ::
-  - Added three test batteries for Czech (contributed by Jan Chromý and the [[https://ercel.ff.cuni.cz/][ERCEL Lab]]).
+  - Added three tests for Czech (contributed by Jan Chromý and the [[https://ercel.ff.cuni.cz/][ERCEL Lab]]).
 - July 14, 2017: ::
   - Switch to fullscreen on start-up.
   - Prevent users from accidentally focusing the text field when it’s
@@ -40,8 +40,8 @@ Py-Span-Task is a simple application for testing working memory span.
 
 Py-Span-Task is written in Python 3 and uses the TK-toolkit for graphical user interfaces.  On Linux and OS X systems, the necessary software for running Py-Span-Task should already be installed.  Running Py-Span-Task on Windows may require installing Python 3 (which usually includes the TK-toolkit).
 
-** Test batteries
-Here's is a list of test batteries that are currently available in this repository.  Please note that neither the authors of py-span-task nor the authors of the test batteries will be liable for any damages or incorrect results.  See the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]] for details.
+** Tests
+Here's is a list of tests that are currently available.  Please note that neither the authors of py-span-task nor the authors of the tests will be liable for any damages or incorrect results.  See the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]] for details.
 
 | Language | Type           | Target items | Source                            |
 |----------+----------------+--------------+-----------------------------------|
@@ -56,7 +56,7 @@ Here's is a list of test batteries that are currently available in this reposito
 | [[https://github.com/tmalsburg/py-span-task/tree/master/SpanishOperationSpan][Spanish]]  | operation span | words        | [[http://www.tandfonline.com/doi/abs/10.1080/01690965.2012.728232][von der Malsburg & Vasishth, 2013]] |
 
 ** Download
-This software and the included test batteries are released under the terms of the GNU General Public License, version 2, or later versions of the license.  Before using the software please take a moment to read the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]].
+This software and the included tests are released under the terms of the GNU General Public License, version 2, or later versions of the license.  Before using the software please take a moment to read the [[https://github.com/tmalsburg/py-span-task/blob/master/LICENSE][license terms]].
 
 - [[https://github.com/tmalsburg/py-span-task/archive/master.zip][Current version]] (.zip)
 
@@ -70,6 +70,15 @@ python pyspantask.py configuration.py
 The test will prompt for a subject id and conduct some sanity checks on the test materials.  For example, it will check whether there are enough target items and whether they are sufficiently different to be uniquely identified when sloppy spelling is tolerated.
 
 The test runs in full screen.  Nonetheless it may be necessary to click on it with the mouse to make it receive keyboard presses.  The test can be aborted at any time using the escape key.
+
+** Structure of a test
+1. Welcome screen
+2. Instructions 1
+3. Familiarization with verification task, e.g., checking of simply equations or sentences for well-formedness.  Feedback is given and the time that it takes the participant to do the task is measured.
+4. Instructions 2
+5. Familiarization with the full task, i.e. verification task plus memory task.  Instead of feedback a memory item is shown after each verification item and participants have to enter the memory items at the end of each trial.  If the participant is too slow, there will be a time-out.  The time-out is calculated for each participant individually based on how fast they were in the first familiarization phase.
+6. Instructions 3, usually just announce the start of the main test
+7. Main test, same as in second familiarization phase but long
 
 ** Configuration
 The configuration file is a Python file that sets a number of settings described below.  As an example, see the [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan/configuration.py][configuration of the Spanish operation span task]] included in this repository.  When you save the configuration file, make sure you save it in UTF-8 encoding.  This way special non-ASCII characters are correctly processed and displayed.
@@ -369,7 +378,7 @@ Below is a BibTeX entry:
 }
 #+END_SRC
 
-*** Can anyone modify the test software and the test batteries?
+*** Can anyone modify the test software and the test materials?
 Yes, feel free to do so.  If you modify the test software or the test material, please consider sharing these changes with us so that we may integrate them in our version.  If you create new test materials, or if you translate one of our tests into another language, we would also be happy to integrate these materials in our repository.  Your contribution will be duly acknowledged on this page.
 
 *** Does Py-Span-Task support non-western scripts?
@@ -379,4 +388,4 @@ Yes, it does, provided that your configuration files and test materials are save
 If you find bugs in the software, or errors in the material, please let us know and we try to fix them.  To report a problem, please use the [[https://github.com/tmalsburg/py-span-task/issues][issue tracker]].
 
 *** Who are the authors of Py-Span-Task?
-Py-Span-Task was originally written by [[https://tmalsburg.github.io/][Titus von der Malsburg]] during his dissertation project at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test batteries.  Kentaro Nakatani contributed the Japanese operation span task, Jan Chomý the three Czech tests, and Anna Laurinavichyute the Russian test.  Brad Buran migrated the code from Python 2 to Python 3.
+Py-Span-Task was originally written by [[https://tmalsburg.github.io/][Titus von der Malsburg]] during his dissertation project at the University of Potsdam.  Paul Metzner and Bruno Nicenboim made various contributions in the form of suggestions for improvements, code, and test materials.  Kentaro Nakatani contributed the Japanese operation span task, Jan Chomý the three Czech tests, and Anna Laurinavichyute the Russian test.  Brad Buran migrated the code from Python 2 to Python 3.
