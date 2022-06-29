@@ -71,7 +71,7 @@ The test will prompt for a subject id and conduct some sanity checks on the test
 
 The test runs in full screen.  Nonetheless it may be necessary to click on it with the mouse to make it receive keyboard presses.  The test can be aborted at any time using the escape key.
 
-** Structure of a test
+** Structure of the test
 1. Welcome screen
 2. Instructions 1
 3. Familiarization with verification task, e.g., checking of simply equations or sentences for well-formedness.  Feedback is given and the time that it takes the participant to do the task is measured.
@@ -79,6 +79,8 @@ The test runs in full screen.  Nonetheless it may be necessary to click on it wi
 5. Familiarization with the full task, i.e. verification task plus memory task.  Instead of feedback a memory item is shown after each verification item and participants have to enter the memory items at the end of each trial.  If the participant is too slow, there will be a time-out.  The time-out is calculated for each participant individually based on how fast they were in the first familiarization phase.
 6. Instructions 3, usually just announce the start of the main test
 7. Main test, same as in second familiarization phase but long
+
+The structure is fixed but many details can be configured (see below).
 
 ** Configuration
 The configuration file is a Python file that sets a number of settings described below.  As an example, see the [[https://github.com/tmalsburg/py-span-task/blob/master/SpanishOperationSpan/configuration.py][configuration of the Spanish operation span task]] included in this repository.  When you save the configuration file, make sure you save it in UTF-8 encoding.  This way special non-ASCII characters are correctly processed and displayed.
@@ -322,7 +324,7 @@ head(d)
 | test     |      1 |         6 |                  5 |                  4 |     452 |    569 | c x z l v t     | c x z v l t    |
 | test     |      2 |         3 |                  1 |                  1 |     800 |   1544 | z y x           | x              |
 
-However, this repository also [[https://github.com/tmalsburg/py-span-task/blob/master/analysis_scripts/calculate_wmscores.R][includes a function]] that reads the data and calculates the usual working memory scores (described in Conway et al., 2005).
+However, this repository also [[https://github.com/tmalsburg/py-span-task/blob/master/analysis_scripts/calculate_wmscores.R][includes an R function]] that reads the data and calculates the usual working memory scores (described in Conway et al., 2005).
 
 # round(t(wm.scores("subject1.tsv")), digits=3)
 #+BEGIN_SRC R :colnames yes :export both
@@ -340,10 +342,17 @@ To process the data of all subjects in an experiment, you can use the following 
 #+BEGIN_SRC R :colnames yes :export both
 source("calculate_wmscores.R")
 file.names <- list.files("/path/to/results.files/", "subject.*.tsv")
-d <- data.frame(t(sapply(rep(file.names, 2), wm.scores)))
+d <- data.frame(t(sapply(file.names, wm.scores)))
 d$subject <- file.names
 head(d)
 #+END_SRC
+
+:         wmc       pcu  anu  pcl  anl accuracy
+: 005.tsv   4 0.8740000 0.60 0.84 0.49     0.87
+: 006.tsv   2 0.7786667 0.40 0.73 0.27     0.86
+: 007.tsv   2 0.7493333 0.44 0.70 0.34     0.87
+: 008.tsv   2 0.7046667 0.28 0.67 0.18     0.75
+: 009.tsv   4 0.9540000 0.76 0.94 0.68     0.81
 
 See the manual of ~list.files~ for details.
 
