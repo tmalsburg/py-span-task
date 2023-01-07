@@ -81,14 +81,14 @@ class MainFrame(tkinter.Frame):
     self.scripts = list(scripts)
     self.opts = {}
 
-    self.display_var = tkinter.StringVar("")
+    self.display_var = tkinter.StringVar(self, "")
     width = master.winfo_screenwidth()
     self.display = tkinter.Message(self, justify=LEFT, textvar=self.display_var,
                      font=(fontname, fontsize),
                      width=width-(width/10), bg="white")
     self.display.pack(fill=BOTH, expand=1)
 
-    self.entry_var = tkinter.StringVar("")
+    self.entry_var = tkinter.StringVar(self, "")
     self.entry = tkinter.Entry(self, font=(fontname, fontsize),
                                state="disabled",
                                textvar=self.entry_var)
